@@ -46,14 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="view\FrmGestionAbsences.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="view\FrmGestionAbsences.Designer.cs">
+      <DependentUpon>FrmGestionAbsences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmGestionPersonnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmGestionPersonnel.Designer.cs">
+      <DependentUpon>FrmGestionPersonnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmAuthentification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmAuthentification.Designer.cs">
+      <DependentUpon>FrmAuthentification.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="view\FrmGestionAbsences.resx">
+      <DependentUpon>FrmGestionAbsences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmGestionPersonnel.resx">
+      <DependentUpon>FrmGestionPersonnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmAuthentification.resx">
+      <DependentUpon>FrmAuthentification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,7 +100,6 @@
   <ItemGroup>
     <Folder Include="controller\" />
     <Folder Include="model\" />
-    <Folder Include="view\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

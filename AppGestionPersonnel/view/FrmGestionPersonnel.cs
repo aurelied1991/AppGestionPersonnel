@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppGestionPersonnel
+namespace AppGestionPersonnel.view
 {
-    public partial class Form1 : Form
+    public partial class FrmGestionPersonnel : Form
     {
-        public Form1()
+        public FrmGestionPersonnel()
         {
             InitializeComponent();
         }
