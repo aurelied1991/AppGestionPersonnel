@@ -6,6 +6,16 @@ using System.Windows.Forms;
 
 namespace AppGestionPersonnel
 {
+    /// <summary>
+    /// Application de gestion du personnel et des absences
+    /// </summary>
+    internal class NamesSpaceDoc
+    {
+    }
+
+    /// <summary>
+    /// Classe principale de l'application
+    /// </summary>
     internal static class Program
     {
         /// <summary>

@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\AppGestionPersonnel.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=9.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 9.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bddmanager\BddManager.cs" />
+    <Compile Include="dal\Access.cs" />
+    <Compile Include="dal\AbsencesAccess.cs" />
+    <Compile Include="dal\ServicePersonnelAccess.cs" />
+    <Compile Include="dal\MotifAbsenceAccess.cs" />
+    <Compile Include="dal\PersonnelAccess.cs" />
+    <Compile Include="model\Absences.cs" />
+    <Compile Include="model\Responsable.cs" />
+    <Compile Include="model\Personnel.cs" />
+    <Compile Include="model\ServicePersonnel.cs" />
+    <Compile Include="model\MotifAbsence.cs" />
     <Compile Include="view\FrmGestionAbsences.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,7 +115,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controller\" />
-    <Folder Include="model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
