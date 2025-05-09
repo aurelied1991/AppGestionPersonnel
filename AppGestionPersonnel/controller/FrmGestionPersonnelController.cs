@@ -16,6 +16,8 @@ namespace AppGestionPersonnel.controller
     {
         //object d'accès aux opérations possibles sur Personnel
         private readonly PersonnelAccess personnelAccess;
+        //object d'accès aux opérations possibles sur Service
+        private readonly ServiceAccess serviceAccess;
 
         /// <summary>
         /// Récupère les accès aux données
@@ -23,6 +25,7 @@ namespace AppGestionPersonnel.controller
         public FrmGestionPersonnelController()
         {
             personnelAccess = new PersonnelAccess();
+            serviceAccess = new ServiceAccess();
         }
 
         /// <summary>
@@ -32,6 +35,23 @@ namespace AppGestionPersonnel.controller
         public List<Personnel> GetLesPersonnels()
         {
             return personnelAccess.GetLesPersonnels();
+        }
+        /// <summary>
+        /// Récupère et retourne la liste des services
+        /// </summary>
+        /// <returns></returns>
+        public List<Service> GetLesServices()
+        {
+            return serviceAccess.GetLesServices();
+        }
+
+        /// <summary>
+        /// Ajoute un personnel dans la base de données
+        /// </summary>
+        /// <param name="personnel"></param>
+        public void AjoutPersonnel(Personnel personnel)
+        {
+            personnelAccess.AjoutPersonnel(personnel);
         }
     }
 }

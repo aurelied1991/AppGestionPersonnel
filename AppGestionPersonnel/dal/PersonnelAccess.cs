@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using AppGestionPersonnel.model;
 
 namespace AppGestionPersonnel.dal
@@ -72,6 +73,36 @@ namespace AppGestionPersonnel.dal
             }
             //Retourne la liste des développeurs récupérés
             return lesPersonnels;
+        }
+
+        /// <summary>
+        /// Demande d'ajout d'un nouveau personnel
+        /// </summary>
+        /// <param name="personnel"></param>
+        public void AjoutPersonnel(Personnel personnel)
+        {
+            if(access.Manager != null)
+            {
+                string requete = "INSERT INTO personnel(nom, prenom, tel, mail, idservice)";
+                requete += "VALUES(@nom, @prenom, @tel, @mail, @idservice);";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@nom", personnel.Nom);
+                parameters.Add("@prenom", personnel.Prenom);
+                parameters.Add("@tel", personnel.Tel);
+                parameters.Add("@mail", personnel.Mail);
+                parameters.Add("@idservice", personnel.Service.Idservice);
+
+                try
+                {
+                    access.Manager.ReqUpdate(requete, parameters);
+                }
+                catch (Exception e)
+                {
+                    
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
+                }
+            }
         }
     }
 }

@@ -43,7 +43,7 @@
             this.txtPrenom = new System.Windows.Forms.TextBox();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblProblemeChamps = new System.Windows.Forms.Label();
             this.lblService = new System.Windows.Forms.Label();
             this.lblMail = new System.Windows.Forms.Label();
             this.lblTel = new System.Windows.Forms.Label();
@@ -125,6 +125,7 @@
             this.BtnAjouterPersonnel.TabIndex = 1;
             this.BtnAjouterPersonnel.Text = "Ajouter un personnel";
             this.BtnAjouterPersonnel.UseVisualStyleBackColor = true;
+            this.BtnAjouterPersonnel.Click += new System.EventHandler(this.BtnAjouterPersonnel_Click);
             // 
             // dgvPersonnel
             // 
@@ -154,7 +155,7 @@
             this.gboSaisieInfos.Controls.Add(this.txtPrenom);
             this.gboSaisieInfos.Controls.Add(this.txtNom);
             this.gboSaisieInfos.Controls.Add(this.button1);
-            this.gboSaisieInfos.Controls.Add(this.label2);
+            this.gboSaisieInfos.Controls.Add(this.lblProblemeChamps);
             this.gboSaisieInfos.Controls.Add(this.lblService);
             this.gboSaisieInfos.Controls.Add(this.lblMail);
             this.gboSaisieInfos.Controls.Add(this.lblTel);
@@ -218,17 +219,17 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblProblemeChamps
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(20, 334);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(283, 22);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Les champs ne sont pas tous remplis";
-            this.label2.Visible = false;
+            this.lblProblemeChamps.AutoSize = true;
+            this.lblProblemeChamps.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProblemeChamps.ForeColor = System.Drawing.Color.Red;
+            this.lblProblemeChamps.Location = new System.Drawing.Point(20, 334);
+            this.lblProblemeChamps.Name = "lblProblemeChamps";
+            this.lblProblemeChamps.Size = new System.Drawing.Size(283, 22);
+            this.lblProblemeChamps.TabIndex = 5;
+            this.lblProblemeChamps.Text = "Les champs ne sont pas tous remplis";
+            this.lblProblemeChamps.Visible = false;
             // 
             // lblService
             // 
@@ -290,6 +291,7 @@
             this.BtnValiderAjout.TabIndex = 3;
             this.BtnValiderAjout.Text = "Valider l\'ajout";
             this.BtnValiderAjout.UseVisualStyleBackColor = true;
+            this.BtnValiderAjout.Click += new System.EventHandler(this.BtnValiderAjout_Click);
             // 
             // BtnValiderModif
             // 
@@ -312,6 +314,7 @@
             this.BtnAnnuler.TabIndex = 5;
             this.BtnAnnuler.Text = "Annuler";
             this.BtnAnnuler.UseVisualStyleBackColor = true;
+            this.BtnAnnuler.Click += new System.EventHandler(this.BtnAnnuler_Click);
             // 
             // BtnDeconnexion
             // 
@@ -360,7 +363,7 @@
         private System.Windows.Forms.GroupBox gboSaisieInfos;
         private System.Windows.Forms.Label lblPrenom;
         private System.Windows.Forms.Label lblNom;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblProblemeChamps;
         private System.Windows.Forms.Label lblService;
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Label lblTel;
