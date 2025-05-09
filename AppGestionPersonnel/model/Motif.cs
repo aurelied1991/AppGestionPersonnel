@@ -7,29 +7,30 @@ using System.Threading.Tasks;
 namespace AppGestionPersonnel.model
 {
     /// <summary>
-    /// Classe métier correspondant à la table responsable de la bdd et qui permet de se connecter à l'application
+    /// Classe métier correspondant à la table motif de la bdd
     /// </summary>
-    public class Responsable
+    public class Motif
     {
         /// <summary>
         /// Constructeur pour valoriser les propriétés privées de la classe
         /// </summary>
-        /// <param name="login"></param>
-        /// <param name="pwd"></param>
-        public Responsable(string login, string pwd)
+        /// <param name="idmotif"></param>
+        /// <param name="nom"></param>
+        public Motif(int idmotif, string nom)
         {
-            // Déclaration de toutes les propriétés privées qui correspondent aux champs de la table responsable
-            this.Login = login;
-            this.Pwd = pwd;
+            //Déclaration de toutes les propriétés privées qui correspondent aux champs de la table motif
+            this.Idmotif = idmotif;
+            this.Nom = nom;
         }
 
         /// <summary>
         /// Getter pour avoir accès à la propriété sans pouvoir la modifier
         /// </summary>
-        public string Login { get; }
+        public int Idmotif { get; }
         /// <summary>
         /// Getter pour avoir accès à la propriété sans pouvoir la modifier
         /// </summary>
-        public string Pwd { get; }
+        public string Nom { get; }
+
     }
 }

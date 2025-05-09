@@ -30,10 +30,10 @@
         {
             this.gboPersonnel = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAfficherAbsences = new System.Windows.Forms.Button();
-            this.btnSupprimerPersonnel = new System.Windows.Forms.Button();
-            this.btnModifierPersonnel = new System.Windows.Forms.Button();
-            this.btnAjouterPersonnel = new System.Windows.Forms.Button();
+            this.BtnAfficherAbsences = new System.Windows.Forms.Button();
+            this.BtnSupprimerPersonnel = new System.Windows.Forms.Button();
+            this.BtnModifierPersonnel = new System.Windows.Forms.Button();
+            this.BtnAjouterPersonnel = new System.Windows.Forms.Button();
             this.dgvPersonnel = new System.Windows.Forms.DataGridView();
             this.lblSaisieInfos = new System.Windows.Forms.Label();
             this.gboSaisieInfos = new System.Windows.Forms.GroupBox();
@@ -49,10 +49,10 @@
             this.lblTel = new System.Windows.Forms.Label();
             this.lblPrenom = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
-            this.btnValiderAjout = new System.Windows.Forms.Button();
-            this.btnValiderModif = new System.Windows.Forms.Button();
-            this.btnAnnuler = new System.Windows.Forms.Button();
-            this.btnDeconnexion = new System.Windows.Forms.Button();
+            this.BtnValiderAjout = new System.Windows.Forms.Button();
+            this.BtnValiderModif = new System.Windows.Forms.Button();
+            this.BtnAnnuler = new System.Windows.Forms.Button();
+            this.BtnDeconnexion = new System.Windows.Forms.Button();
             this.gboPersonnel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).BeginInit();
             this.gboSaisieInfos.SuspendLayout();
@@ -61,10 +61,10 @@
             // gboPersonnel
             // 
             this.gboPersonnel.Controls.Add(this.label1);
-            this.gboPersonnel.Controls.Add(this.btnAfficherAbsences);
-            this.gboPersonnel.Controls.Add(this.btnSupprimerPersonnel);
-            this.gboPersonnel.Controls.Add(this.btnModifierPersonnel);
-            this.gboPersonnel.Controls.Add(this.btnAjouterPersonnel);
+            this.gboPersonnel.Controls.Add(this.BtnAfficherAbsences);
+            this.gboPersonnel.Controls.Add(this.BtnSupprimerPersonnel);
+            this.gboPersonnel.Controls.Add(this.BtnModifierPersonnel);
+            this.gboPersonnel.Controls.Add(this.BtnAjouterPersonnel);
             this.gboPersonnel.Controls.Add(this.dgvPersonnel);
             this.gboPersonnel.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboPersonnel.Location = new System.Drawing.Point(12, 12);
@@ -86,45 +86,45 @@
             this.label1.Text = "Aucun personnel sélectionné";
             this.label1.Visible = false;
             // 
-            // btnAfficherAbsences
+            // BtnAfficherAbsences
             // 
-            this.btnAfficherAbsences.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAfficherAbsences.Location = new System.Drawing.Point(7, 535);
-            this.btnAfficherAbsences.Name = "btnAfficherAbsences";
-            this.btnAfficherAbsences.Size = new System.Drawing.Size(205, 40);
-            this.btnAfficherAbsences.TabIndex = 4;
-            this.btnAfficherAbsences.Text = "Afficher les absences";
-            this.btnAfficherAbsences.UseVisualStyleBackColor = true;
+            this.BtnAfficherAbsences.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAfficherAbsences.Location = new System.Drawing.Point(0, 535);
+            this.BtnAfficherAbsences.Name = "BtnAfficherAbsences";
+            this.BtnAfficherAbsences.Size = new System.Drawing.Size(213, 40);
+            this.BtnAfficherAbsences.TabIndex = 4;
+            this.BtnAfficherAbsences.Text = "Afficher les absences";
+            this.BtnAfficherAbsences.UseVisualStyleBackColor = true;
             // 
-            // btnSupprimerPersonnel
+            // BtnSupprimerPersonnel
             // 
-            this.btnSupprimerPersonnel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerPersonnel.Location = new System.Drawing.Point(523, 472);
-            this.btnSupprimerPersonnel.Name = "btnSupprimerPersonnel";
-            this.btnSupprimerPersonnel.Size = new System.Drawing.Size(232, 40);
-            this.btnSupprimerPersonnel.TabIndex = 3;
-            this.btnSupprimerPersonnel.Text = "Supprimer un personnel";
-            this.btnSupprimerPersonnel.UseVisualStyleBackColor = true;
+            this.BtnSupprimerPersonnel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSupprimerPersonnel.Location = new System.Drawing.Point(523, 472);
+            this.BtnSupprimerPersonnel.Name = "BtnSupprimerPersonnel";
+            this.BtnSupprimerPersonnel.Size = new System.Drawing.Size(232, 40);
+            this.BtnSupprimerPersonnel.TabIndex = 3;
+            this.BtnSupprimerPersonnel.Text = "Supprimer un personnel";
+            this.BtnSupprimerPersonnel.UseVisualStyleBackColor = true;
             // 
-            // btnModifierPersonnel
+            // BtnModifierPersonnel
             // 
-            this.btnModifierPersonnel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifierPersonnel.Location = new System.Drawing.Point(261, 472);
-            this.btnModifierPersonnel.Name = "btnModifierPersonnel";
-            this.btnModifierPersonnel.Size = new System.Drawing.Size(215, 40);
-            this.btnModifierPersonnel.TabIndex = 2;
-            this.btnModifierPersonnel.Text = "Modifier un personnel";
-            this.btnModifierPersonnel.UseVisualStyleBackColor = true;
+            this.BtnModifierPersonnel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModifierPersonnel.Location = new System.Drawing.Point(258, 472);
+            this.BtnModifierPersonnel.Name = "BtnModifierPersonnel";
+            this.BtnModifierPersonnel.Size = new System.Drawing.Size(218, 40);
+            this.BtnModifierPersonnel.TabIndex = 2;
+            this.BtnModifierPersonnel.Text = "Modifier un personnel";
+            this.BtnModifierPersonnel.UseVisualStyleBackColor = true;
             // 
-            // btnAjouterPersonnel
+            // BtnAjouterPersonnel
             // 
-            this.btnAjouterPersonnel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouterPersonnel.Location = new System.Drawing.Point(7, 472);
-            this.btnAjouterPersonnel.Name = "btnAjouterPersonnel";
-            this.btnAjouterPersonnel.Size = new System.Drawing.Size(205, 40);
-            this.btnAjouterPersonnel.TabIndex = 1;
-            this.btnAjouterPersonnel.Text = "Ajouter un personnel";
-            this.btnAjouterPersonnel.UseVisualStyleBackColor = true;
+            this.BtnAjouterPersonnel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAjouterPersonnel.Location = new System.Drawing.Point(0, 472);
+            this.BtnAjouterPersonnel.Name = "BtnAjouterPersonnel";
+            this.BtnAjouterPersonnel.Size = new System.Drawing.Size(213, 40);
+            this.BtnAjouterPersonnel.TabIndex = 1;
+            this.BtnAjouterPersonnel.Text = "Ajouter un personnel";
+            this.BtnAjouterPersonnel.UseVisualStyleBackColor = true;
             // 
             // dgvPersonnel
             // 
@@ -160,6 +160,7 @@
             this.gboSaisieInfos.Controls.Add(this.lblTel);
             this.gboSaisieInfos.Controls.Add(this.lblPrenom);
             this.gboSaisieInfos.Controls.Add(this.lblNom);
+            this.gboSaisieInfos.Enabled = false;
             this.gboSaisieInfos.Location = new System.Drawing.Point(783, 54);
             this.gboSaisieInfos.Name = "gboSaisieInfos";
             this.gboSaisieInfos.Size = new System.Drawing.Size(419, 370);
@@ -279,55 +280,58 @@
             this.lblNom.TabIndex = 0;
             this.lblNom.Text = "Nom :";
             // 
-            // btnValiderAjout
+            // BtnValiderAjout
             // 
-            this.btnValiderAjout.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnValiderAjout.Location = new System.Drawing.Point(804, 430);
-            this.btnValiderAjout.Name = "btnValiderAjout";
-            this.btnValiderAjout.Size = new System.Drawing.Size(163, 40);
-            this.btnValiderAjout.TabIndex = 3;
-            this.btnValiderAjout.Text = "Valider l\'ajout";
-            this.btnValiderAjout.UseVisualStyleBackColor = true;
+            this.BtnValiderAjout.Enabled = false;
+            this.BtnValiderAjout.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnValiderAjout.Location = new System.Drawing.Point(804, 430);
+            this.BtnValiderAjout.Name = "BtnValiderAjout";
+            this.BtnValiderAjout.Size = new System.Drawing.Size(163, 40);
+            this.BtnValiderAjout.TabIndex = 3;
+            this.BtnValiderAjout.Text = "Valider l\'ajout";
+            this.BtnValiderAjout.UseVisualStyleBackColor = true;
             // 
-            // btnValiderModif
+            // BtnValiderModif
             // 
-            this.btnValiderModif.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnValiderModif.Location = new System.Drawing.Point(804, 484);
-            this.btnValiderModif.Name = "btnValiderModif";
-            this.btnValiderModif.Size = new System.Drawing.Size(222, 40);
-            this.btnValiderModif.TabIndex = 4;
-            this.btnValiderModif.Text = "Valider les modifications";
-            this.btnValiderModif.UseVisualStyleBackColor = true;
+            this.BtnValiderModif.Enabled = false;
+            this.BtnValiderModif.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnValiderModif.Location = new System.Drawing.Point(804, 484);
+            this.BtnValiderModif.Name = "BtnValiderModif";
+            this.BtnValiderModif.Size = new System.Drawing.Size(235, 40);
+            this.BtnValiderModif.TabIndex = 4;
+            this.BtnValiderModif.Text = "Valider les modifications";
+            this.BtnValiderModif.UseVisualStyleBackColor = true;
             // 
-            // btnAnnuler
+            // BtnAnnuler
             // 
-            this.btnAnnuler.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnuler.Location = new System.Drawing.Point(804, 547);
-            this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(170, 40);
-            this.btnAnnuler.TabIndex = 5;
-            this.btnAnnuler.Text = "Annuler";
-            this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.BtnAnnuler.Enabled = false;
+            this.BtnAnnuler.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAnnuler.Location = new System.Drawing.Point(804, 547);
+            this.BtnAnnuler.Name = "BtnAnnuler";
+            this.BtnAnnuler.Size = new System.Drawing.Size(170, 40);
+            this.BtnAnnuler.TabIndex = 5;
+            this.BtnAnnuler.Text = "Annuler";
+            this.BtnAnnuler.UseVisualStyleBackColor = true;
             // 
-            // btnDeconnexion
+            // BtnDeconnexion
             // 
-            this.btnDeconnexion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeconnexion.Location = new System.Drawing.Point(1059, 547);
-            this.btnDeconnexion.Name = "btnDeconnexion";
-            this.btnDeconnexion.Size = new System.Drawing.Size(143, 40);
-            this.btnDeconnexion.TabIndex = 6;
-            this.btnDeconnexion.Text = "Déconnexion";
-            this.btnDeconnexion.UseVisualStyleBackColor = true;
+            this.BtnDeconnexion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDeconnexion.Location = new System.Drawing.Point(1059, 547);
+            this.BtnDeconnexion.Name = "BtnDeconnexion";
+            this.BtnDeconnexion.Size = new System.Drawing.Size(143, 40);
+            this.BtnDeconnexion.TabIndex = 6;
+            this.BtnDeconnexion.Text = "Déconnexion";
+            this.BtnDeconnexion.UseVisualStyleBackColor = true;
             // 
             // FrmGestionPersonnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 620);
-            this.Controls.Add(this.btnDeconnexion);
-            this.Controls.Add(this.btnAnnuler);
-            this.Controls.Add(this.btnValiderModif);
-            this.Controls.Add(this.btnValiderAjout);
+            this.Controls.Add(this.BtnDeconnexion);
+            this.Controls.Add(this.BtnAnnuler);
+            this.Controls.Add(this.BtnValiderModif);
+            this.Controls.Add(this.BtnValiderAjout);
             this.Controls.Add(this.gboSaisieInfos);
             this.Controls.Add(this.lblSaisieInfos);
             this.Controls.Add(this.gboPersonnel);
@@ -347,11 +351,11 @@
 
         private System.Windows.Forms.GroupBox gboPersonnel;
         private System.Windows.Forms.DataGridView dgvPersonnel;
-        private System.Windows.Forms.Button btnSupprimerPersonnel;
-        private System.Windows.Forms.Button btnModifierPersonnel;
-        private System.Windows.Forms.Button btnAjouterPersonnel;
+        private System.Windows.Forms.Button BtnSupprimerPersonnel;
+        private System.Windows.Forms.Button BtnModifierPersonnel;
+        private System.Windows.Forms.Button BtnAjouterPersonnel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAfficherAbsences;
+        private System.Windows.Forms.Button BtnAfficherAbsences;
         private System.Windows.Forms.Label lblSaisieInfos;
         private System.Windows.Forms.GroupBox gboSaisieInfos;
         private System.Windows.Forms.Label lblPrenom;
@@ -361,10 +365,10 @@
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Label lblTel;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnValiderAjout;
-        private System.Windows.Forms.Button btnValiderModif;
-        private System.Windows.Forms.Button btnAnnuler;
-        private System.Windows.Forms.Button btnDeconnexion;
+        private System.Windows.Forms.Button BtnValiderAjout;
+        private System.Windows.Forms.Button BtnValiderModif;
+        private System.Windows.Forms.Button BtnAnnuler;
+        private System.Windows.Forms.Button BtnDeconnexion;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.TextBox txtPrenom;

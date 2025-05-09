@@ -33,8 +33,8 @@
             this.lblLogin = new System.Windows.Forms.Label();
             this.lblMdp = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.txtMdp = new System.Windows.Forms.TextBox();
-            this.btnConnexion = new System.Windows.Forms.Button();
+            this.txtPwd = new System.Windows.Forms.TextBox();
+            this.BtnConnexion = new System.Windows.Forms.Button();
             this.lblErreurLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -86,24 +86,25 @@
             this.txtLogin.Size = new System.Drawing.Size(177, 29);
             this.txtLogin.TabIndex = 4;
             // 
-            // txtMdp
+            // txtPwd
             // 
-            this.txtMdp.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMdp.Location = new System.Drawing.Point(418, 165);
-            this.txtMdp.Name = "txtMdp";
-            this.txtMdp.PasswordChar = '*';
-            this.txtMdp.Size = new System.Drawing.Size(189, 29);
-            this.txtMdp.TabIndex = 5;
+            this.txtPwd.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPwd.Location = new System.Drawing.Point(418, 165);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.PasswordChar = '*';
+            this.txtPwd.Size = new System.Drawing.Size(189, 29);
+            this.txtPwd.TabIndex = 5;
             // 
-            // btnConnexion
+            // BtnConnexion
             // 
-            this.btnConnexion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnexion.Location = new System.Drawing.Point(226, 257);
-            this.btnConnexion.Name = "btnConnexion";
-            this.btnConnexion.Size = new System.Drawing.Size(122, 44);
-            this.btnConnexion.TabIndex = 6;
-            this.btnConnexion.Text = "Connexion";
-            this.btnConnexion.UseVisualStyleBackColor = true;
+            this.BtnConnexion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConnexion.Location = new System.Drawing.Point(226, 257);
+            this.BtnConnexion.Name = "BtnConnexion";
+            this.BtnConnexion.Size = new System.Drawing.Size(122, 44);
+            this.BtnConnexion.TabIndex = 6;
+            this.BtnConnexion.Text = "Connexion";
+            this.BtnConnexion.UseVisualStyleBackColor = true;
+            this.BtnConnexion.Click += new System.EventHandler(this.BtnConnexion_Click);
             // 
             // lblErreurLogin
             // 
@@ -123,8 +124,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 358);
             this.Controls.Add(this.lblErreurLogin);
-            this.Controls.Add(this.btnConnexion);
-            this.Controls.Add(this.txtMdp);
+            this.Controls.Add(this.BtnConnexion);
+            this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.lblMdp);
             this.Controls.Add(this.lblLogin);
@@ -144,8 +145,8 @@
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label lblMdp;
         private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.TextBox txtMdp;
-        private System.Windows.Forms.Button btnConnexion;
+        private System.Windows.Forms.TextBox txtPwd;
+        private System.Windows.Forms.Button BtnConnexion;
         private System.Windows.Forms.Label lblErreurLogin;
     }
 }

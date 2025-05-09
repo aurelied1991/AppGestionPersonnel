@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using AppGestionPersonnel.bddmanager;
+using MySql.Data.MySqlClient;
 
 namespace AppGestionPersonnel.dal
 {
     /// <summary>
-    /// Classe sollicitée pour récupérer toujours la même connexion unique à la BDD
+    /// Classe sollicitée pour récupérer toujours la même connexion unique à la BDD (singleton)
     /// </summary>
     public class Access
     {
         //Chaîne de connexion à la bdd
-        private static readonly string connectionString = "server=localhost; user id=gestionnaire; password=5Ly06P47gey2y4u!!; database=gestionpersonnel;";
+        private static readonly string connectionString = "server=localhost; user id=gestionnaire; password=5Ly06P47!!; database=gestionpersonnel;";
+
         //Propriété qui contiendra l'unique instance de la classe
         private static Access instance = null;
         /// <summary>
@@ -32,7 +35,7 @@ namespace AppGestionPersonnel.dal
             }
             catch (Exception)
             {
-                Environment.Exit(0);
+                 Environment.Exit(0);
             }
         }
 

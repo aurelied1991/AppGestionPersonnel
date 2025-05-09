@@ -52,16 +52,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bddmanager\BddManager.cs" />
+    <Compile Include="controller\FrmGestionPersonnelController.cs" />
+    <Compile Include="controller\FrmGestionAbsencesController.cs" />
+    <Compile Include="controller\FrmAuthentificationController.cs" />
     <Compile Include="dal\Access.cs" />
     <Compile Include="dal\AbsencesAccess.cs" />
-    <Compile Include="dal\ServicePersonnelAccess.cs" />
-    <Compile Include="dal\MotifAbsenceAccess.cs" />
+    <Compile Include="dal\ResponsableAccess.cs" />
+    <Compile Include="dal\ServiceAccess.cs" />
+    <Compile Include="dal\MotifAccess.cs" />
     <Compile Include="dal\PersonnelAccess.cs" />
     <Compile Include="model\Absences.cs" />
     <Compile Include="model\Responsable.cs" />
     <Compile Include="model\Personnel.cs" />
-    <Compile Include="model\ServicePersonnel.cs" />
-    <Compile Include="model\MotifAbsence.cs" />
+    <Compile Include="model\Service.cs" />
+    <Compile Include="model\Motif.cs" />
     <Compile Include="view\FrmGestionAbsences.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,8 +117,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
