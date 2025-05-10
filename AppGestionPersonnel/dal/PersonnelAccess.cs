@@ -128,5 +128,35 @@ namespace AppGestionPersonnel.dal
                 }
             }
         }
+
+        /// <summary>
+        /// Modification d'un personnel dans la base de données
+        /// </summary>
+        /// <param name="personnel"></param>
+        public void ModifierPersonnel(Personnel personnel)
+        {
+            if(access.Manager != null)
+            {
+                string requete = "UPDATE personnel SET nom = @nom, prenom = @prenom, tel = @tel, mail = @mail, idservice = @idservice WHERE idpersonnel = @idpersonnel;";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@nom", personnel.Nom);
+                parameters.Add("@prenom", personnel.Prenom);
+                parameters.Add("@tel", personnel.Tel);
+                parameters.Add("@mail", personnel.Mail);
+                parameters.Add("@idservice", personnel.Service.Idservice);
+                parameters.Add("@idpersonnel", personnel.Idpersonnel);
+
+                try
+                {
+                    access.Manager.ReqUpdate(requete, parameters);
+                }
+                catch
+                (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
+                }
+            }
+        }
     }
 }
