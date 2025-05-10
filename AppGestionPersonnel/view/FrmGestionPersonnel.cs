@@ -20,6 +20,9 @@ namespace AppGestionPersonnel.view
     /// </summary>
     public partial class FrmGestionPersonnel : Form
     {
+
+        private Personnel personnelSelection; // Variable pour stocker le personnel sélectionné
+
         /// <summary>
         /// Controleur de la fenêtre de l'application
         /// </summary>
@@ -143,6 +146,76 @@ namespace AppGestionPersonnel.view
             BtnValiderAjout.Enabled = false;
             BtnAnnuler.Enabled = false;
             BtnValiderModif.Enabled = false;
+        }
+
+        /// <summary>
+        /// Pour accéder à la modification d'un personnel sélectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnModifierPersonnel_Click(object sender, EventArgs e)
+        {
+            if(dgvPersonnel.SelectedRows.Count > 0)
+            {
+                gboSaisieInfos.Enabled = true;
+                BtnValiderModif.Enabled = true;
+                BtnAnnuler.Enabled = true;
+                gboPersonnel.Enabled = false;
+                // Récupère l'objet `Personnel` directement depuis la ligne sélectionnée
+                personnelSelection = (Personnel)dgvPersonnel.SelectedRows[0].DataBoundItem;
+ 
+                txtNom.Text = personnelSelection.Nom;
+                txtPrenom.Text = personnelSelection.Prenom;
+                txtTel.Text = personnelSelection.Tel;
+                txtMail.Text = personnelSelection.Mail;
+                Console.WriteLine("ID Service depuis l'objet : " + personnelSelection.Service.Idservice);
+                if (personnelSelection.Service != null && personnelSelection.Service.Idservice > 0)
+                {
+                    cboService.SelectedValue = personnelSelection.Service.Idservice;
+                }
+                else
+                {
+                    cboService.SelectedIndex = 0; // On met sur la ligne vide si rien n'est trouvé
+                }
+
+            }
+            else
+            {
+                lblAucuneSelection.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Bouton pour valider les modifications apportés en vérifiant que tous les champs de texte sont remplis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnValiderModif_Click(object sender, EventArgs e)
+        {
+            //Vérifier que tous les champs sont remplis ou sélectionnés
+            if (!txtNom.Text.Equals("") && !txtPrenom.Text.Equals("") && !txtTel.Text.Equals("") && !txtMail.Text.Equals("") && cboService.SelectedIndex != -1)
+            {
+                if (MessageBox.Show("Êtes-vous sûr de vouloir enregistrer ces modifications ?", "Confirmer la modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    personnelSelection.Nom = txtNom.Text;
+                    personnelSelection.Prenom = txtPrenom.Text;
+                    personnelSelection.Tel = txtTel.Text;
+                    personnelSelection.Mail = txtMail.Text;
+                    personnelSelection.Service = (Service)cboService.SelectedItem;
+                    controller.ModifierPersonnel(personnelSelection);
+                    RemplirListePersonnel();
+                    ViderChampsTexte();
+                }
+                else
+                {
+                    lblAucuneSelection.Visible = false;
+                    ViderChampsTexte();
+                }
+            }
+            else
+            {
+                lblProblemeChamps.Visible = true;
+            }
         }
     }
 }

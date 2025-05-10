@@ -116,6 +116,7 @@
             this.BtnModifierPersonnel.TabIndex = 2;
             this.BtnModifierPersonnel.Text = "Modifier un personnel";
             this.BtnModifierPersonnel.UseVisualStyleBackColor = true;
+            this.BtnModifierPersonnel.Click += new System.EventHandler(this.BtnModifierPersonnel_Click);
             // 
             // BtnAjouterPersonnel
             // 
@@ -138,6 +139,7 @@
             this.dgvPersonnel.ReadOnly = true;
             this.dgvPersonnel.RowHeadersWidth = 51;
             this.dgvPersonnel.RowTemplate.Height = 24;
+            this.dgvPersonnel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersonnel.Size = new System.Drawing.Size(755, 416);
             this.dgvPersonnel.TabIndex = 0;
             // 
@@ -308,6 +310,7 @@
             this.BtnValiderModif.TabIndex = 4;
             this.BtnValiderModif.Text = "Valider les modifications";
             this.BtnValiderModif.UseVisualStyleBackColor = true;
+            this.BtnValiderModif.Click += new System.EventHandler(this.BtnValiderModif_Click);
             // 
             // BtnAnnuler
             // 
