@@ -53,5 +53,14 @@ namespace AppGestionPersonnel.controller
         {
             personnelAccess.AjoutPersonnel(personnel);
         }
+
+        /// <summary>
+        /// Supprimer un personnel dans la base de données
+        /// </summary>
+        /// <param name="personnel"></param>
+        public void SupprimerPersonnel(Personnel personnel)
+        {
+            personnelAccess.SupprimerPersonnel(personnel);
+        }
     }
 }

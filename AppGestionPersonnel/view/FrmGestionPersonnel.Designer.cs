@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.gboPersonnel = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblAucuneSelection = new System.Windows.Forms.Label();
             this.BtnAfficherAbsences = new System.Windows.Forms.Button();
             this.BtnSupprimerPersonnel = new System.Windows.Forms.Button();
             this.BtnModifierPersonnel = new System.Windows.Forms.Button();
@@ -60,7 +60,7 @@
             // 
             // gboPersonnel
             // 
-            this.gboPersonnel.Controls.Add(this.label1);
+            this.gboPersonnel.Controls.Add(this.lblAucuneSelection);
             this.gboPersonnel.Controls.Add(this.BtnAfficherAbsences);
             this.gboPersonnel.Controls.Add(this.BtnSupprimerPersonnel);
             this.gboPersonnel.Controls.Add(this.BtnModifierPersonnel);
@@ -74,17 +74,17 @@
             this.gboPersonnel.TabStop = false;
             this.gboPersonnel.Text = "Liste du personnel";
             // 
-            // label1
+            // lblAucuneSelection
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(6, 578);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 21);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Aucun personnel sélectionné";
-            this.label1.Visible = false;
+            this.lblAucuneSelection.AutoSize = true;
+            this.lblAucuneSelection.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAucuneSelection.ForeColor = System.Drawing.Color.Red;
+            this.lblAucuneSelection.Location = new System.Drawing.Point(6, 578);
+            this.lblAucuneSelection.Name = "lblAucuneSelection";
+            this.lblAucuneSelection.Size = new System.Drawing.Size(215, 21);
+            this.lblAucuneSelection.TabIndex = 5;
+            this.lblAucuneSelection.Text = "Aucun personnel sélectionné";
+            this.lblAucuneSelection.Visible = false;
             // 
             // BtnAfficherAbsences
             // 
@@ -105,6 +105,7 @@
             this.BtnSupprimerPersonnel.TabIndex = 3;
             this.BtnSupprimerPersonnel.Text = "Supprimer un personnel";
             this.BtnSupprimerPersonnel.UseVisualStyleBackColor = true;
+            this.BtnSupprimerPersonnel.Click += new System.EventHandler(this.BtnSupprimerPersonnel_Click);
             // 
             // BtnModifierPersonnel
             // 
@@ -129,9 +130,12 @@
             // 
             // dgvPersonnel
             // 
+            this.dgvPersonnel.AllowUserToAddRows = false;
+            this.dgvPersonnel.AllowUserToDeleteRows = false;
             this.dgvPersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonnel.Location = new System.Drawing.Point(0, 42);
             this.dgvPersonnel.Name = "dgvPersonnel";
+            this.dgvPersonnel.ReadOnly = true;
             this.dgvPersonnel.RowHeadersWidth = 51;
             this.dgvPersonnel.RowTemplate.Height = 24;
             this.dgvPersonnel.Size = new System.Drawing.Size(755, 416);
@@ -170,6 +174,7 @@
             // 
             // cboService
             // 
+            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboService.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboService.FormattingEnabled = true;
             this.cboService.Location = new System.Drawing.Point(214, 285);
@@ -357,7 +362,7 @@
         private System.Windows.Forms.Button BtnSupprimerPersonnel;
         private System.Windows.Forms.Button BtnModifierPersonnel;
         private System.Windows.Forms.Button BtnAjouterPersonnel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAucuneSelection;
         private System.Windows.Forms.Button BtnAfficherAbsences;
         private System.Windows.Forms.Label lblSaisieInfos;
         private System.Windows.Forms.GroupBox gboSaisieInfos;

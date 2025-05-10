@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace AppGestionPersonnel.dal
             List<Personnel> lesPersonnels = new List<Personnel>();
 
             //Vérification que la connexion à la base de données est bien établie
-            if(access != null)
+            if (access != null)
             {
                 //Construction de la requête SQL pour récupérer tous les personnels
                 string requete = "SELECT p.idpersonnel AS idpersonnel, p.nom AS nom, p.prenom AS prenom, p.tel AS tel, p.mail AS mail, s.idservice AS idservice, s.nom AS service ";
@@ -81,7 +82,7 @@ namespace AppGestionPersonnel.dal
         /// <param name="personnel"></param>
         public void AjoutPersonnel(Personnel personnel)
         {
-            if(access.Manager != null)
+            if (access.Manager != null)
             {
                 string requete = "INSERT INTO personnel(nom, prenom, tel, mail, idservice)";
                 requete += "VALUES(@nom, @prenom, @tel, @mail, @idservice);";
@@ -98,7 +99,30 @@ namespace AppGestionPersonnel.dal
                 }
                 catch (Exception e)
                 {
-                    
+
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Suppression d'un personnel de la base de données
+        /// </summary>
+        /// <param name="personnel"></param>
+        public void SupprimerPersonnel(Personnel personnel)
+        {
+            if (access.Manager != null)
+            {
+                string requete = "DELETE FROM personnel WHERE idpersonnel = @idpersonnel;";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@idpersonnel", personnel.Idpersonnel);
+                try
+                {
+                    access.Manager.ReqUpdate(requete, parameters);
+                }
+                catch (Exception e)
+                {
                     Console.WriteLine(e.Message);
                     Environment.Exit(0);
                 }

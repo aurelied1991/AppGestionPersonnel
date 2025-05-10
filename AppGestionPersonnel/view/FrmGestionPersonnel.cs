@@ -94,10 +94,7 @@ namespace AppGestionPersonnel.view
                 Personnel personnel = new Personnel(0, txtNom.Text, txtPrenom.Text, txtTel.Text, txtMail.Text, (Service)cboService.SelectedItem);
                 controller.AjoutPersonnel(personnel);
                 RemplirListePersonnel();
-                gboSaisieInfos.Enabled = false;
-                gboPersonnel.Enabled = true;
-                BtnValiderAjout.Enabled = false;
-                BtnAnnuler.Enabled = false;
+                ViderChampsTexte();
             }
             else
             {
@@ -111,6 +108,30 @@ namespace AppGestionPersonnel.view
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnAnnuler_Click(object sender, EventArgs e)
+        {
+            ViderChampsTexte();
+        }
+
+        private void BtnSupprimerPersonnel_Click(object sender, EventArgs e)
+        {
+            if (dgvPersonnel.SelectedRows.Count > 0)
+            {
+                // Récupère l'objet `Personnel` directement depuis la ligne sélectionnée
+                Personnel personnel = (Personnel)dgvPersonnel.SelectedRows[0].DataBoundItem;
+                if (MessageBox.Show($"Voulez-vous vraiment supprimer {personnel.Prenom} {personnel.Nom} ?","Confirmation",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    controller.SupprimerPersonnel(personnel);
+                    RemplirListePersonnel();
+                    lblAucuneSelection.Visible = false;
+                }
+            }
+            else
+            {
+                lblAucuneSelection.Visible = true;
+            }
+        }
+
+        private void ViderChampsTexte()
         {
             txtMail.Text = "";
             txtNom.Text = "";
