@@ -37,9 +37,23 @@ namespace AppGestionPersonnel.controller
             return absencesAccess.GetLesAbsences(idPersonnel);
         }
 
+        /// <summary>
+        /// Récupère et retourne la liste des motifs
+        /// </summary>
+        /// <returns></returns>
         public List<Motif> GetLesMotifs()
         {
             return motifAccess.GetLesMotifs();
         }
+
+        /// <summary>
+        /// Ajoute une absence dans la base de données
+        /// </summary>
+        /// <param name="absence"></param>
+        public void AjoutAbsence(Absences absence)
+        {
+            absencesAccess.AjoutAbsence(absence);
+        }
+
     }
 }

@@ -65,7 +65,7 @@ namespace AppGestionPersonnel.dal
                     {
                         //boucle sur chaque enregistrement retourné par la bdd tant qu'il y a un résultat
                         foreach (Object[] record in records)
-                        { 
+                        {
                             //Création d'un objet motif à partir des informations récupérées
                             Motif motif = new Motif((int)record[2], (string)record[3]);
                             //Création d'un objet Absences à partir des informations récupérées
@@ -87,6 +87,36 @@ namespace AppGestionPersonnel.dal
             }
             //retourne la liste des absences récupérées
             return lesAbsences;
+        }
+
+        /// <summary>
+        /// Demande d'ajout d'une nouvelle absence
+        /// </summary>
+        /// <param name="absences"></param>
+        public void AjoutAbsence(Absences absences)
+        {
+            if (access.Manager != null)
+            {
+                string requete = "INSERT INTO absence(idpersonnel, datedebut, datefin, idmotif) ";
+                requete += "VALUES(@idpersonnel, @datedebut, @datefin, @idmotif);";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@idpersonnel", absences.Idpersonnel);
+                parameters.Add("@datedebut", absences.Datedebut);
+                parameters.Add("@datefin", absences.Datefin);
+                parameters.Add("@idmotif", absences.Motif.Idmotif);
+                try
+                {
+                    access.Manager.ReqUpdate(requete, parameters);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    MessageBox.Show($"Erreur lors de l'ajout d'une absence : {e.Message}");
+                    // Optionnel : Log dans la console aussi
+                    Console.WriteLine(e.Message);
+                    //Environment.Exit(0);
+                }
+            }
         }
     }
 }
