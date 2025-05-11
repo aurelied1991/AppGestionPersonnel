@@ -15,12 +15,12 @@ namespace AppGestionPersonnel.model
         /// Constructeur pour valoriser les propriétés privées de la classe
         /// </summary>
         /// <param name="idmotif"></param>
-        /// <param name="nom"></param>
-        public Motif(int idmotif, string nom)
+        /// <param name="libelle"></param>
+        public Motif(int idmotif, string libelle)
         {
             //Déclaration de toutes les propriétés privées qui correspondent aux champs de la table motif
             this.Idmotif = idmotif;
-            this.Nom = nom;
+            this.Libelle = libelle;
         }
 
         /// <summary>
@@ -30,7 +30,12 @@ namespace AppGestionPersonnel.model
         /// <summary>
         /// Getter pour avoir accès à la propriété sans pouvoir la modifier
         /// </summary>
-        public string Nom { get; }
+        public string Libelle { get; }
+
+        public override string ToString()
+        {
+            return this.Libelle;
+        }
 
     }
 }

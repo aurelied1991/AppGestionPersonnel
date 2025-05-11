@@ -217,5 +217,35 @@ namespace AppGestionPersonnel.view
                 lblProblemeChamps.Visible = true;
             }
         }
+
+        /// <summary>
+        /// Pour afficher les absences d'un personnel sélectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAfficherAbsences_Click(object sender, EventArgs e)
+        {
+            Personnel personnelSelectionne = (Personnel)dgvPersonnel.SelectedRows[0].DataBoundItem;
+            if (dgvPersonnel.SelectedRows.Count > 0)
+            {
+                int idPersonnel = personnelSelectionne.Idpersonnel;
+                FrmGestionAbsences frm = new FrmGestionAbsences(idPersonnel);
+                frm.ShowDialog();
+            }
+            else
+            {
+                lblAucuneSelection.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Pour se déconnecter de l'application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnDeconnexion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

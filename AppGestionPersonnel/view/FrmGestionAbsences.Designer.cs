@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.gboListeAbsences = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnSupprimerAbsence = new System.Windows.Forms.Button();
+            this.btnModifAbsence = new System.Windows.Forms.Button();
+            this.btnAjoutAbsence = new System.Windows.Forms.Button();
+            this.dgvAbsences = new System.Windows.Forms.DataGridView();
             this.lblSaisieAbsence = new System.Windows.Forms.Label();
             this.lblDateDebut = new System.Windows.Forms.Label();
             this.gboSaisieInfosAbsence = new System.Windows.Forms.GroupBox();
-            this.lblDateFin = new System.Windows.Forms.Label();
-            this.lblCreneauNonLibre = new System.Windows.Forms.Label();
-            this.lblProblemeDate = new System.Windows.Forms.Label();
-            this.lblMotif = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDebutAbsence = new System.Windows.Forms.DateTimePicker();
             this.cboMotifAbsence = new System.Windows.Forms.ComboBox();
+            this.lblMotif = new System.Windows.Forms.Label();
+            this.lblProblemeDate = new System.Windows.Forms.Label();
+            this.lblCreneauNonLibre = new System.Windows.Forms.Label();
+            this.lblDateFin = new System.Windows.Forms.Label();
             this.btnEnregistrerAbsence = new System.Windows.Forms.Button();
             this.btnEnregistrerModifications = new System.Windows.Forms.Button();
             this.btnAnnulerAction = new System.Windows.Forms.Button();
-            this.btnAjoutAbsence = new System.Windows.Forms.Button();
-            this.btnModifAbsence = new System.Windows.Forms.Button();
-            this.btnSupprimerAbsence = new System.Windows.Forms.Button();
             this.btnRetourPersonnel = new System.Windows.Forms.Button();
-            this.dtpDebutAbsence = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.gboListeAbsences.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).BeginInit();
             this.gboSaisieInfosAbsence.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,24 +57,56 @@
             this.gboListeAbsences.Controls.Add(this.btnSupprimerAbsence);
             this.gboListeAbsences.Controls.Add(this.btnModifAbsence);
             this.gboListeAbsences.Controls.Add(this.btnAjoutAbsence);
-            this.gboListeAbsences.Controls.Add(this.dataGridView1);
+            this.gboListeAbsences.Controls.Add(this.dgvAbsences);
             this.gboListeAbsences.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboListeAbsences.Location = new System.Drawing.Point(13, 13);
+            this.gboListeAbsences.Location = new System.Drawing.Point(3, 13);
             this.gboListeAbsences.Name = "gboListeAbsences";
-            this.gboListeAbsences.Size = new System.Drawing.Size(689, 595);
+            this.gboListeAbsences.Size = new System.Drawing.Size(699, 595);
             this.gboListeAbsences.TabIndex = 0;
             this.gboListeAbsences.TabStop = false;
             this.gboListeAbsences.Text = "Liste des absences";
             // 
-            // dataGridView1
+            // btnSupprimerAbsence
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 36);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(677, 421);
-            this.dataGridView1.TabIndex = 0;
+            this.btnSupprimerAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimerAbsence.Location = new System.Drawing.Point(465, 498);
+            this.btnSupprimerAbsence.Name = "btnSupprimerAbsence";
+            this.btnSupprimerAbsence.Size = new System.Drawing.Size(228, 34);
+            this.btnSupprimerAbsence.TabIndex = 3;
+            this.btnSupprimerAbsence.Text = "Supprimer une absence";
+            this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
+            // 
+            // btnModifAbsence
+            // 
+            this.btnModifAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifAbsence.Location = new System.Drawing.Point(229, 498);
+            this.btnModifAbsence.Name = "btnModifAbsence";
+            this.btnModifAbsence.Size = new System.Drawing.Size(211, 34);
+            this.btnModifAbsence.TabIndex = 2;
+            this.btnModifAbsence.Text = "Modifier une absence";
+            this.btnModifAbsence.UseVisualStyleBackColor = true;
+            // 
+            // btnAjoutAbsence
+            // 
+            this.btnAjoutAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjoutAbsence.Location = new System.Drawing.Point(0, 498);
+            this.btnAjoutAbsence.Name = "btnAjoutAbsence";
+            this.btnAjoutAbsence.Size = new System.Drawing.Size(206, 34);
+            this.btnAjoutAbsence.TabIndex = 1;
+            this.btnAjoutAbsence.Text = "Ajouter une absence";
+            this.btnAjoutAbsence.UseVisualStyleBackColor = true;
+            // 
+            // dgvAbsences
+            // 
+            this.dgvAbsences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAbsences.Location = new System.Drawing.Point(0, 36);
+            this.dgvAbsences.Name = "dgvAbsences";
+            this.dgvAbsences.ReadOnly = true;
+            this.dgvAbsences.RowHeadersWidth = 51;
+            this.dgvAbsences.RowTemplate.Height = 24;
+            this.dgvAbsences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAbsences.Size = new System.Drawing.Size(693, 421);
+            this.dgvAbsences.TabIndex = 0;
             // 
             // lblSaisieAbsence
             // 
@@ -106,33 +138,52 @@
             this.gboSaisieInfosAbsence.Controls.Add(this.lblCreneauNonLibre);
             this.gboSaisieInfosAbsence.Controls.Add(this.lblDateFin);
             this.gboSaisieInfosAbsence.Controls.Add(this.lblDateDebut);
+            this.gboSaisieInfosAbsence.Enabled = false;
             this.gboSaisieInfosAbsence.Location = new System.Drawing.Point(702, 49);
             this.gboSaisieInfosAbsence.Name = "gboSaisieInfosAbsence";
             this.gboSaisieInfosAbsence.Size = new System.Drawing.Size(514, 249);
             this.gboSaisieInfosAbsence.TabIndex = 3;
             this.gboSaisieInfosAbsence.TabStop = false;
             // 
-            // lblDateFin
+            // dateTimePicker1
             // 
-            this.lblDateFin.AutoSize = true;
-            this.lblDateFin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateFin.Location = new System.Drawing.Point(6, 85);
-            this.lblDateFin.Name = "lblDateFin";
-            this.lblDateFin.Size = new System.Drawing.Size(220, 24);
-            this.lblDateFin.TabIndex = 3;
-            this.lblDateFin.Text = "Date de fin de l\'absence :";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(271, 85);
+            this.dateTimePicker1.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(146, 29);
+            this.dateTimePicker1.TabIndex = 9;
             // 
-            // lblCreneauNonLibre
+            // dtpDebutAbsence
             // 
-            this.lblCreneauNonLibre.AutoSize = true;
-            this.lblCreneauNonLibre.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreneauNonLibre.ForeColor = System.Drawing.Color.Red;
-            this.lblCreneauNonLibre.Location = new System.Drawing.Point(6, 118);
-            this.lblCreneauNonLibre.Name = "lblCreneauNonLibre";
-            this.lblCreneauNonLibre.Size = new System.Drawing.Size(472, 22);
-            this.lblCreneauNonLibre.TabIndex = 4;
-            this.lblCreneauNonLibre.Text = "Impossible, une absence est déjà enregistrée dans ce créneau";
-            this.lblCreneauNonLibre.Visible = false;
+            this.dtpDebutAbsence.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDebutAbsence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDebutAbsence.Location = new System.Drawing.Point(271, 18);
+            this.dtpDebutAbsence.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
+            this.dtpDebutAbsence.Name = "dtpDebutAbsence";
+            this.dtpDebutAbsence.Size = new System.Drawing.Size(146, 29);
+            this.dtpDebutAbsence.TabIndex = 8;
+            // 
+            // cboMotifAbsence
+            // 
+            this.cboMotifAbsence.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMotifAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMotifAbsence.FormattingEnabled = true;
+            this.cboMotifAbsence.Location = new System.Drawing.Point(209, 207);
+            this.cboMotifAbsence.Name = "cboMotifAbsence";
+            this.cboMotifAbsence.Size = new System.Drawing.Size(180, 32);
+            this.cboMotifAbsence.TabIndex = 7;
+            // 
+            // lblMotif
+            // 
+            this.lblMotif.AutoSize = true;
+            this.lblMotif.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMotif.Location = new System.Drawing.Point(6, 210);
+            this.lblMotif.Name = "lblMotif";
+            this.lblMotif.Size = new System.Drawing.Size(173, 24);
+            this.lblMotif.TabIndex = 6;
+            this.lblMotif.Text = "Motif de l\'absence :";
             // 
             // lblProblemeDate
             // 
@@ -146,27 +197,31 @@
             this.lblProblemeDate.Text = "La date de fin ne peut pas être antérieure à la date  de début";
             this.lblProblemeDate.Visible = false;
             // 
-            // lblMotif
+            // lblCreneauNonLibre
             // 
-            this.lblMotif.AutoSize = true;
-            this.lblMotif.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotif.Location = new System.Drawing.Point(6, 210);
-            this.lblMotif.Name = "lblMotif";
-            this.lblMotif.Size = new System.Drawing.Size(173, 24);
-            this.lblMotif.TabIndex = 6;
-            this.lblMotif.Text = "Motif de l\'absence :";
+            this.lblCreneauNonLibre.AutoSize = true;
+            this.lblCreneauNonLibre.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreneauNonLibre.ForeColor = System.Drawing.Color.Red;
+            this.lblCreneauNonLibre.Location = new System.Drawing.Point(6, 118);
+            this.lblCreneauNonLibre.Name = "lblCreneauNonLibre";
+            this.lblCreneauNonLibre.Size = new System.Drawing.Size(472, 22);
+            this.lblCreneauNonLibre.TabIndex = 4;
+            this.lblCreneauNonLibre.Text = "Impossible, une absence est déjà enregistrée dans ce créneau";
+            this.lblCreneauNonLibre.Visible = false;
             // 
-            // cboMotifAbsence
+            // lblDateFin
             // 
-            this.cboMotifAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboMotifAbsence.FormattingEnabled = true;
-            this.cboMotifAbsence.Location = new System.Drawing.Point(209, 207);
-            this.cboMotifAbsence.Name = "cboMotifAbsence";
-            this.cboMotifAbsence.Size = new System.Drawing.Size(180, 32);
-            this.cboMotifAbsence.TabIndex = 7;
+            this.lblDateFin.AutoSize = true;
+            this.lblDateFin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateFin.Location = new System.Drawing.Point(6, 85);
+            this.lblDateFin.Name = "lblDateFin";
+            this.lblDateFin.Size = new System.Drawing.Size(220, 24);
+            this.lblDateFin.TabIndex = 3;
+            this.lblDateFin.Text = "Date de fin de l\'absence :";
             // 
             // btnEnregistrerAbsence
             // 
+            this.btnEnregistrerAbsence.Enabled = false;
             this.btnEnregistrerAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrerAbsence.Location = new System.Drawing.Point(702, 318);
             this.btnEnregistrerAbsence.Name = "btnEnregistrerAbsence";
@@ -177,6 +232,7 @@
             // 
             // btnEnregistrerModifications
             // 
+            this.btnEnregistrerModifications.Enabled = false;
             this.btnEnregistrerModifications.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrerModifications.Location = new System.Drawing.Point(702, 377);
             this.btnEnregistrerModifications.Name = "btnEnregistrerModifications";
@@ -187,6 +243,7 @@
             // 
             // btnAnnulerAction
             // 
+            this.btnAnnulerAction.Enabled = false;
             this.btnAnnulerAction.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnulerAction.Location = new System.Drawing.Point(702, 436);
             this.btnAnnulerAction.Name = "btnAnnulerAction";
@@ -195,65 +252,15 @@
             this.btnAnnulerAction.Text = "Annuler";
             this.btnAnnulerAction.UseVisualStyleBackColor = true;
             // 
-            // btnAjoutAbsence
-            // 
-            this.btnAjoutAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjoutAbsence.Location = new System.Drawing.Point(-1, 498);
-            this.btnAjoutAbsence.Name = "btnAjoutAbsence";
-            this.btnAjoutAbsence.Size = new System.Drawing.Size(195, 34);
-            this.btnAjoutAbsence.TabIndex = 1;
-            this.btnAjoutAbsence.Text = "Ajouter une absence";
-            this.btnAjoutAbsence.UseVisualStyleBackColor = true;
-            // 
-            // btnModifAbsence
-            // 
-            this.btnModifAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifAbsence.Location = new System.Drawing.Point(229, 498);
-            this.btnModifAbsence.Name = "btnModifAbsence";
-            this.btnModifAbsence.Size = new System.Drawing.Size(200, 34);
-            this.btnModifAbsence.TabIndex = 2;
-            this.btnModifAbsence.Text = "Modifier une absence";
-            this.btnModifAbsence.UseVisualStyleBackColor = true;
-            // 
-            // btnSupprimerAbsence
-            // 
-            this.btnSupprimerAbsence.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerAbsence.Location = new System.Drawing.Point(465, 498);
-            this.btnSupprimerAbsence.Name = "btnSupprimerAbsence";
-            this.btnSupprimerAbsence.Size = new System.Drawing.Size(218, 34);
-            this.btnSupprimerAbsence.TabIndex = 3;
-            this.btnSupprimerAbsence.Text = "Supprimer une absence";
-            this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
-            // 
             // btnRetourPersonnel
             // 
             this.btnRetourPersonnel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRetourPersonnel.Location = new System.Drawing.Point(886, 511);
             this.btnRetourPersonnel.Name = "btnRetourPersonnel";
-            this.btnRetourPersonnel.Size = new System.Drawing.Size(294, 34);
+            this.btnRetourPersonnel.Size = new System.Drawing.Size(330, 34);
             this.btnRetourPersonnel.TabIndex = 7;
             this.btnRetourPersonnel.Text = "Retour à la gestion du personnel";
             this.btnRetourPersonnel.UseVisualStyleBackColor = true;
-            // 
-            // dtpDebutAbsence
-            // 
-            this.dtpDebutAbsence.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDebutAbsence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDebutAbsence.Location = new System.Drawing.Point(271, 18);
-            this.dtpDebutAbsence.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
-            this.dtpDebutAbsence.Name = "dtpDebutAbsence";
-            this.dtpDebutAbsence.Size = new System.Drawing.Size(146, 29);
-            this.dtpDebutAbsence.TabIndex = 8;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(271, 85);
-            this.dateTimePicker1.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(146, 29);
-            this.dateTimePicker1.TabIndex = 9;
             // 
             // FrmGestionAbsences
             // 
@@ -270,7 +277,7 @@
             this.Name = "FrmGestionAbsences";
             this.Text = "Gestion des absences du personnel";
             this.gboListeAbsences.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).EndInit();
             this.gboSaisieInfosAbsence.ResumeLayout(false);
             this.gboSaisieInfosAbsence.PerformLayout();
             this.ResumeLayout(false);
@@ -281,7 +288,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gboListeAbsences;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAbsences;
         private System.Windows.Forms.Label lblSaisieAbsence;
         private System.Windows.Forms.Label lblDateDebut;
         private System.Windows.Forms.GroupBox gboSaisieInfosAbsence;

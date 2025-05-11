@@ -39,7 +39,7 @@ namespace AppGestionPersonnel.dal
             if (access.Manager != null)
             {
                 //Enregistrement de la requête paramétrée dans une variable
-                string requete = "SELECT * FROM motif ORDER BY nom;";
+                string requete = "SELECT * FROM motif ORDER BY libelle;";
 
                 //try catch car une demande d'exécution d'une requête peut provoquer une erreur
                 try

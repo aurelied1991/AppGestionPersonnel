@@ -95,6 +95,7 @@
             this.BtnAfficherAbsences.TabIndex = 4;
             this.BtnAfficherAbsences.Text = "Afficher les absences";
             this.BtnAfficherAbsences.UseVisualStyleBackColor = true;
+            this.BtnAfficherAbsences.Click += new System.EventHandler(this.BtnAfficherAbsences_Click);
             // 
             // BtnSupprimerPersonnel
             // 
@@ -333,6 +334,7 @@
             this.BtnDeconnexion.TabIndex = 6;
             this.BtnDeconnexion.Text = "Déconnexion";
             this.BtnDeconnexion.UseVisualStyleBackColor = true;
+            this.BtnDeconnexion.Click += new System.EventHandler(this.BtnDeconnexion_Click);
             // 
             // FrmGestionPersonnel
             // 

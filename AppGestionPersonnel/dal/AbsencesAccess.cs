@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AppGestionPersonnel.model;
+using AppGestionPersonnel.view;
+using AppGestionPersonnel.dal;
+using System.Windows.Forms;
 
 namespace AppGestionPersonnel.dal
 {
@@ -76,7 +79,10 @@ namespace AppGestionPersonnel.dal
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Environment.Exit(0);
+                    MessageBox.Show($"Erreur lors de la récupération des absences : {e.Message}");
+                    // Optionnel : Log dans la console aussi
+                    Console.WriteLine(e.Message);
+                    //Environment.Exit(0);
                 }
             }
             //retourne la liste des absences récupérées
