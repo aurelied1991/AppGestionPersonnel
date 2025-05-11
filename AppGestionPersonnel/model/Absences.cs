@@ -43,5 +43,8 @@ namespace AppGestionPersonnel.model
         /// Getter et Setter afin d'avoir accès à la propriété et la modifier
         /// </summary>
         public Motif Motif { get; set; }
+
+        // Ajout d'un identifiant temporaire
+        public Guid AbsenceId { get; } = Guid.NewGuid();
     }
 }

@@ -175,7 +175,7 @@ namespace AppGestionPersonnel.view
                 }
                 else
                 {
-                    cboService.SelectedIndex = 0; // On met sur la ligne vide si rien n'est trouvé
+                    cboService.SelectedIndex = -1;
                 }
 
             }

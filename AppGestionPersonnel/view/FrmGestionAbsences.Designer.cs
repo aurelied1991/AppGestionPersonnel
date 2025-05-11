@@ -47,6 +47,7 @@
             this.btnEnregistrerModifications = new System.Windows.Forms.Button();
             this.btnAnnulerAction = new System.Windows.Forms.Button();
             this.btnRetourPersonnel = new System.Windows.Forms.Button();
+            this.lblAucuneSelection = new System.Windows.Forms.Label();
             this.gboListeAbsences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).BeginInit();
             this.gboSaisieInfosAbsence.SuspendLayout();
@@ -54,6 +55,7 @@
             // 
             // gboListeAbsences
             // 
+            this.gboListeAbsences.Controls.Add(this.lblAucuneSelection);
             this.gboListeAbsences.Controls.Add(this.btnSupprimerAbsence);
             this.gboListeAbsences.Controls.Add(this.btnModifAbsence);
             this.gboListeAbsences.Controls.Add(this.btnAjoutAbsence);
@@ -75,6 +77,7 @@
             this.btnSupprimerAbsence.TabIndex = 3;
             this.btnSupprimerAbsence.Text = "Supprimer une absence";
             this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
+            this.btnSupprimerAbsence.Click += new System.EventHandler(this.btnSupprimerAbsence_Click);
             // 
             // btnModifAbsence
             // 
@@ -85,6 +88,7 @@
             this.btnModifAbsence.TabIndex = 2;
             this.btnModifAbsence.Text = "Modifier une absence";
             this.btnModifAbsence.UseVisualStyleBackColor = true;
+            this.btnModifAbsence.Click += new System.EventHandler(this.btnModifAbsence_Click);
             // 
             // btnAjoutAbsence
             // 
@@ -243,6 +247,7 @@
             this.btnEnregistrerModifications.TabIndex = 5;
             this.btnEnregistrerModifications.Text = "Enregistrer les modifications";
             this.btnEnregistrerModifications.UseVisualStyleBackColor = true;
+            this.btnEnregistrerModifications.Click += new System.EventHandler(this.btnEnregistrerModifications_Click);
             // 
             // btnAnnulerAction
             // 
@@ -265,6 +270,19 @@
             this.btnRetourPersonnel.TabIndex = 7;
             this.btnRetourPersonnel.Text = "Retour à la gestion du personnel";
             this.btnRetourPersonnel.UseVisualStyleBackColor = true;
+            this.btnRetourPersonnel.Click += new System.EventHandler(this.btnRetourPersonnel_Click);
+            // 
+            // lblAucuneSelection
+            // 
+            this.lblAucuneSelection.AutoSize = true;
+            this.lblAucuneSelection.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAucuneSelection.ForeColor = System.Drawing.Color.Red;
+            this.lblAucuneSelection.Location = new System.Drawing.Point(9, 545);
+            this.lblAucuneSelection.Name = "lblAucuneSelection";
+            this.lblAucuneSelection.Size = new System.Drawing.Size(445, 22);
+            this.lblAucuneSelection.TabIndex = 4;
+            this.lblAucuneSelection.Text = "Attention, une absence doit être sélectionnée dans la liste";
+            this.lblAucuneSelection.Visible = false;
             // 
             // FrmGestionAbsences
             // 
@@ -281,6 +299,7 @@
             this.Name = "FrmGestionAbsences";
             this.Text = "Gestion des absences du personnel";
             this.gboListeAbsences.ResumeLayout(false);
+            this.gboListeAbsences.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).EndInit();
             this.gboSaisieInfosAbsence.ResumeLayout(false);
             this.gboSaisieInfosAbsence.PerformLayout();
@@ -310,5 +329,6 @@
         private System.Windows.Forms.Button btnRetourPersonnel;
         private System.Windows.Forms.DateTimePicker dtpFinAbsence;
         private System.Windows.Forms.DateTimePicker dtpDebutAbsence;
+        private System.Windows.Forms.Label lblAucuneSelection;
     }
 }

@@ -111,10 +111,30 @@ namespace AppGestionPersonnel.dal
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    MessageBox.Show($"Erreur lors de l'ajout d'une absence : {e.Message}");
-                    // Optionnel : Log dans la console aussi
+                    Environment.Exit(0);
+                }
+            }
+        }
+
+        public void ModifierAbsence(Absences absences)
+        {
+            if (access.Manager != null)
+            {
+                string requete = "UPDATE absence SET datedebut = @datedebut, datefin = @datefin, idmotif = @idmotif ";
+                requete += "WHERE idpersonnel = @idpersonnel;";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@idpersonnel", absences.Idpersonnel);
+                parameters.Add("@datedebut", absences.Datedebut);
+                parameters.Add("@datefin", absences.Datefin);
+                parameters.Add("@idmotif", absences.Motif.Idmotif);
+                try
+                {
+                    access.Manager.ReqUpdate(requete, parameters);
+                }
+                catch (Exception e)
+                {
                     Console.WriteLine(e.Message);
-                    //Environment.Exit(0);
+                    Environment.Exit(0);
                 }
             }
         }

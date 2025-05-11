@@ -21,6 +21,8 @@ namespace AppGestionPersonnel.view
     {
         private int idPersonnel;
 
+        private Guid absenceIdTemporaire;
+
         //object d'accès aux opérations possibles sur FrmGestionAbsences
         private FrmGestionAbsencesController controller;
 
@@ -140,6 +142,9 @@ namespace AppGestionPersonnel.view
 
         private void ReinitialiserFormulaire()
         {
+            lblAucuneSelection.Visible = false;
+            lblCreneauNonLibre.Visible = false;
+            lblProblemeDate.Visible = false;
             dtpDebutAbsence.Value = DateTime.Now;
             dtpFinAbsence.Value = DateTime.Now;
             cboMotifAbsence.SelectedIndex = -1; // Aucune sélection par défaut
@@ -153,6 +158,103 @@ namespace AppGestionPersonnel.view
         private void btnAnnulerAction_Click(object sender, EventArgs e)
         {
             ReinitialiserFormulaire();
+        }
+
+        private void btnModifAbsence_Click(object sender, EventArgs e)
+        {
+            if(dgvAbsences.SelectedRows.Count > 0)
+            {
+                lblAucuneSelection.Visible = false;
+                gboSaisieInfosAbsence.Enabled = true;
+                btnEnregistrerModifications.Enabled = true;
+                btnAnnulerAction.Enabled = true;
+                gboListeAbsences.Enabled = false;
+                // Récupérer l'absence sélectionnée
+                Absences absence = (Absences)dgvAbsences.SelectedRows[0].DataBoundItem;
+                absenceIdTemporaire = absence.AbsenceId;
+                dtpDebutAbsence.Value = absence.Datedebut;
+                dtpFinAbsence.Value = absence.Datefin;
+                if(absence.Motif != null)
+                {
+                    cboMotifAbsence.SelectedValue = absence.Motif.Idmotif;
+                }
+                else
+                {
+                    cboMotifAbsence.SelectedIndex = -1; // Aucune sélection par défaut
+                }
+            }
+
+            else
+            {
+                lblAucuneSelection.Visible = true;
+            }
+            
+        }
+
+        private void btnEnregistrerModifications_Click(object sender, EventArgs e)
+        {
+            //Masquer les messages d'erreur à chaque nouvelle tentative
+            lblProblemeDate.Visible = false;
+            lblCreneauNonLibre.Visible = false;
+            //Vérifier que tous les champs sont remplis ou sélectionnés
+            if (cboMotifAbsence.SelectedIndex != -1 && dtpDebutAbsence.Value != null && dtpFinAbsence.Value != null)
+            {
+                if (dtpDebutAbsence.Value < dtpFinAbsence.Value)
+                {
+                    List<Absences> lesAbsences = (List<Absences>)dgvAbsences.DataSource;
+                    bool creneauLibre = true;
+                    foreach (Absences absences in lesAbsences)
+                    {
+                        if (absences.AbsenceId != absenceIdTemporaire)
+                        {
+                            if (dtpDebutAbsence.Value < absences.Datefin && dtpFinAbsence.Value > absences.Datedebut)
+                            {
+                                creneauLibre = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (creneauLibre)
+                    {
+                        if (MessageBox.Show("Êtes-vous sûr de vouloir enregistrer ces modifications ?", "Confirmer la modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            //Création d'un objet Absences à partir des informations saisies
+                            Absences absence = new Absences(idPersonnel, dtpDebutAbsence.Value, dtpFinAbsence.Value, (Motif)cboMotifAbsence.SelectedItem);
+                            //Ajout de l'absence dans la base de données
+                            controller.ModifierAbsence(absence);
+                            RemplirListeAbsences();
+                            ReinitialiserFormulaire();
+                        }
+                        else
+                        {
+                            ReinitialiserFormulaire();
+                        }
+                    }
+                    else
+                    {
+                        lblCreneauNonLibre.Visible = true;
+                    }
+                }
+                else
+                {
+                    lblProblemeDate.Visible = true;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Veuillez remplir tous les champs obligatoires.");
+            }
+        }
+
+        private void btnSupprimerAbsence_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRetourPersonnel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

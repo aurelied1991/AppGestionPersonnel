@@ -55,5 +55,13 @@ namespace AppGestionPersonnel.controller
             absencesAccess.AjoutAbsence(absence);
         }
 
+        /// <summary>
+        /// Modifier une absence dans la base de données
+        /// </summary>
+        /// <param name="absence"></param>
+        public void ModifierAbsence(Absences absence)
+        {
+            absencesAccess.ModifierAbsence(absence);
+        }
     }
 }
