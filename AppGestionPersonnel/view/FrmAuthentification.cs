@@ -73,8 +73,12 @@ namespace AppGestionPersonnel
                 //Instancier le contrôleur????
                 if (controller.ControleAuthentification(responsable))
                 {
+                    this.Hide();
                     FrmGestionPersonnel frm = new FrmGestionPersonnel();
                     frm.ShowDialog();
+                    this.Show();
+                    txtLogin.Clear();
+                    txtPwd.Clear();
                 }
                 else
                 {

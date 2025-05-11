@@ -57,6 +57,7 @@ namespace AppGestionPersonnel.view
             List<Absences> lesAbsences = controller.GetLesAbsences(idPersonnel);
             dgvAbsences.DataSource = lesAbsences;
             dgvAbsences.Columns["IdPersonnel"].Visible = false;
+            dgvAbsences.Columns["AbsenceId"].Visible = false;
             // Appliquer le format pour les colonnes de dates
             dgvAbsences.Columns["Datedebut"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvAbsences.Columns["Datefin"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -249,12 +250,26 @@ namespace AppGestionPersonnel.view
 
         private void btnSupprimerAbsence_Click(object sender, EventArgs e)
         {
-
+            if (dgvAbsences.SelectedRows.Count > 0)
+            {
+                lblAucuneSelection.Visible = false;
+                // Récupérer l'absence sélectionnée
+                Absences absence = (Absences)dgvAbsences.SelectedRows[0].DataBoundItem;
+                if (MessageBox.Show("Êtes-vous sûr de vouloir supprimer cette absence ?", "Confirmer la suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    controller.SupprimerAbsence(absence);
+                    RemplirListeAbsences();
+                }
+            }
+            else
+            {
+                lblAucuneSelection.Visible = true;
+            }
         }
 
         private void btnRetourPersonnel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

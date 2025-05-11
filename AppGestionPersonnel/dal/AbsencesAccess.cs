@@ -7,6 +7,7 @@ using AppGestionPersonnel.model;
 using AppGestionPersonnel.view;
 using AppGestionPersonnel.dal;
 using System.Windows.Forms;
+using System.Runtime.CompilerServices;
 
 namespace AppGestionPersonnel.dal
 {
@@ -116,6 +117,10 @@ namespace AppGestionPersonnel.dal
             }
         }
 
+        /// <summary>
+        /// Modifier une absence dans la base de données
+        /// </summary>
+        /// <param name="absences"></param>
         public void ModifierAbsence(Absences absences)
         {
             if (access.Manager != null)
@@ -127,6 +132,30 @@ namespace AppGestionPersonnel.dal
                 parameters.Add("@datedebut", absences.Datedebut);
                 parameters.Add("@datefin", absences.Datefin);
                 parameters.Add("@idmotif", absences.Motif.Idmotif);
+                try
+                {
+                    access.Manager.ReqUpdate(requete, parameters);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Supprimer une absence de la base de données
+        /// </summary>
+        /// <param name="absences"></param>
+        public void SupprimerAbsence(Absences absences)
+        {
+            if (access.Manager != null)
+            {
+                string requete = "DELETE FROM absence WHERE idpersonnel = @idpersonnel AND datedebut = @datedebut;";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@idpersonnel", absences.Idpersonnel);
+                parameters.Add("@datedebut", absences.Datedebut.Date);
                 try
                 {
                     access.Manager.ReqUpdate(requete, parameters);

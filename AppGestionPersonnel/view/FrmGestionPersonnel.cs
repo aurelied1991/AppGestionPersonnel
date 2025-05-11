@@ -229,8 +229,10 @@ namespace AppGestionPersonnel.view
             if (dgvPersonnel.SelectedRows.Count > 0)
             {
                 int idPersonnel = personnelSelectionne.Idpersonnel;
+                this.Hide();
                 FrmGestionAbsences frm = new FrmGestionAbsences(idPersonnel);
                 frm.ShowDialog();
+                this.Show();
             }
             else
             {
@@ -245,7 +247,7 @@ namespace AppGestionPersonnel.view
         /// <param name="e"></param>
         private void BtnDeconnexion_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
