@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AppGestionPersonnel.model;
 
 namespace AppGestionPersonnel.dal
 {
     /// <summary>
-    /// Cette classe a pour rôle de construire les requêtes en lien avec la table motif, donc en exploitant la classe MotifAbsence
+    /// Cette classe a pour rôle de construire les requêtes en lien avec la table "motif", donc en exploitant la classe Motif
     /// </summary>
     public class MotifAccess
     {
@@ -31,40 +28,42 @@ namespace AppGestionPersonnel.dal
         /// <returns>Liste motifs</returns>
         public List<Motif> GetLesMotifs()
         {
-            //Création en local d'une liste d'objets de type Motif pour la remplir à partir de la bdd et la retourner
+            // Création en local d'une liste d'objets de type Motif pour la remplir à partir de la bdd et la retourner
             List<Motif> lesMotifs = new List<Motif>();
-            //Ajout d'une ligne vide qui sera sélectionnée par défaut au démarrage de l'application
-            lesMotifs.Add(new Motif(0, ""));
 
+            // Vérification que l'accès à la base de données est bien établi avant de lancer la requête
             if (access.Manager != null)
             {
-                //Enregistrement de la requête paramétrée dans une variable
+                // Construction de la requête SQL pour récupérer tous les motifs d'absence
                 string requete = "SELECT * FROM motif ORDER BY libelle;";
 
-                //try catch car une demande d'exécution d'une requête peut provoquer une erreur
+                // Tentative d'exécution de la requête SQL
                 try
                 {
-                    //Demande à BddManager (via l'objet Manager de la classe Access) d'exécuter une requête qui récupère tous les services
+                    // Exécution de la requête via la méthode ReqSelect de l'objet Manager et récupération des résultats dans une liste d'objets
                     List<Object[]> records = access.Manager.ReqSelect(requete);
-                    //Vérifier que la liste n'est pas null puis boucler sur les objets de cette liste
+
+                    // Vérification que la requête a bien retourné des résultats
                     if (records != null)
                     {
-                        //A chaque tour de boucle, un objet de type Motif doit être crée en mettant les paramètres du constructeurs, les 2 cases du tableau récupéré (contenant idmotif et nom) apres les avoir correctement transtypés (car les cases sont de type object)
+                        // Parcours de chaque enregistrement retourné par la requête
                         foreach (Object[] record in records)
                         {
+                            // Création d'un objet Motif à partir des données récupérées (idmotif et libelle)
                             Motif motif = new Motif((int)record[0], (string)record[1]);
-                            //Ajout de l'objet service dans la liste de services
+                            // Ajout de l'objet Motif dans la liste des motifs
                             lesMotifs.Add(motif);
                         }
                     }
                 }
+                // Gestion des exceptions en cas d'erreur lors de l'exécution de la requête
                 catch (Exception e)
                 {
-                    //affichage d'un message + arrêt de l'application en car d'erreur
                     Console.WriteLine(e.Message);
                     Environment.Exit(0);
                 }
             }
+            // Retour de la liste des motifs récupérés depuis la base de données
             return lesMotifs;
         }
     }

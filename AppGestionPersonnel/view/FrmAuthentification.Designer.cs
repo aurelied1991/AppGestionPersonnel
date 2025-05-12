@@ -1,4 +1,4 @@
-﻿namespace AppGestionPersonnel
+﻿namespace AppGestionPersonnel.view 
 {
     partial class FrmAuthentification
     {

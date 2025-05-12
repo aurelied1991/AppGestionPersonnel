@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AppGestionPersonnel.model;
-using AppGestionPersonnel.view;
 using AppGestionPersonnel.dal;
 
 namespace AppGestionPersonnel.controller
 {
     /// <summary>
-    /// Cette classe a pour rôle de contrôler les données saisies dans le formulaire de gestion du personnel
+    /// Contrôleur pour la fenêtre de gestion du personnel
+    /// Gère les interactions entre la vue (le formulaire de gestion du personnel) et le modèle (opérations d'accès aux données)
     /// </summary>
     public class FrmGestionPersonnelController
     {
-        //object d'accès aux opérations possibles sur Personnel
+        // Objet d'accès aux opérations possibles sur Personnel
         private readonly PersonnelAccess personnelAccess;
-        //object d'accès aux opérations possibles sur Service
+        // Objet d'accès aux opérations possibles sur Service
         private readonly ServiceAccess serviceAccess;
 
         /// <summary>
-        /// Récupère les accès aux données
+        /// Constructeur de la classe et initialise les accès aux données pour les opérations sur les tables "personnel" et "service"
         /// </summary>
         public FrmGestionPersonnelController()
         {
@@ -29,44 +25,45 @@ namespace AppGestionPersonnel.controller
         }
 
         /// <summary>
-        /// Récupère et retourne la liste des personnels
+        /// Récupère la liste des personnels depuis la base de données
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Liste d'objets représentants les employés</returns>
         public List<Personnel> GetLesPersonnels()
         {
             return personnelAccess.GetLesPersonnels();
         }
+
         /// <summary>
-        /// Récupère et retourne la liste des services
+        /// Récupère la liste des services depuis la bdd
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Liste d'objets représentants les services</returns>
         public List<Service> GetLesServices()
         {
             return serviceAccess.GetLesServices();
         }
 
         /// <summary>
-        /// Ajoute un personnel dans la base de données
+        /// Ajoute un nouveau personnel dans la base de données
         /// </summary>
-        /// <param name="personnel"></param>
+        /// <param name="personnel">Objet contenant les informations à enregistrer du nouveau personnel</param>
         public void AjoutPersonnel(Personnel personnel)
         {
             personnelAccess.AjoutPersonnel(personnel);
         }
 
         /// <summary>
-        /// Supprimer un personnel dans la base de données
+        /// Supprime un personnel de la base de données
         /// </summary>
-        /// <param name="personnel"></param>
+        /// <param name="personnel">Objet représentant le personnel à supprimer</param>
         public void SupprimerPersonnel(Personnel personnel)
         {
             personnelAccess.SupprimerPersonnel(personnel);
         }
 
         /// <summary>
-        /// Modifier un personnel dans la base de données
+        /// Modifie les informations d'un personnel dans la base de données
         /// </summary>
-        /// <param name="personnel"></param>
+        /// <param name="personnel">Objet contenant les informations mises à jour de l'employé</param>
         public void ModifierPersonnel(Personnel personnel)
         {
             personnelAccess.ModifierPersonnel(personnel);

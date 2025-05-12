@@ -1,31 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppGestionPersonnel.model;
-using AppGestionPersonnel.view;
 using AppGestionPersonnel.controller;
-using AppGestionPersonnel.dal;
 
-namespace AppGestionPersonnel
+namespace AppGestionPersonnel.view
 {
     /// <summary>
-    /// Fenêtre d'authentification à l'application
+    /// Fenêtre d'authentification permettant l'accès à l'application
     /// </summary>
     public partial class FrmAuthentification : Form
     {
         /// <summary>
-        /// Controleur de la fenetre
+        /// Contrôleur associé à la fenêtre d'authentification pour gérer la logique métier
         /// </summary>
         private FrmAuthentificationController controller;     
 
         /// <summary>
-        /// Construction des composants graphiques et initialisation
+        /// Constructeur de la fenêtre d'authentification : initialise les composants graphiques et le contrôleur
         /// </summary>
         public FrmAuthentification()
         {
@@ -34,7 +25,7 @@ namespace AppGestionPersonnel
         }
 
         /// <summary>
-        /// Valorisation de la propriété FrmAuthentificationController, création contrôleur
+        /// Initialise le contrôleur de la fenêtre d'authentification
         /// </summary>
         public void Init()
         {
@@ -42,46 +33,42 @@ namespace AppGestionPersonnel
         }
 
         /// <summary>
-        /// Contrôler l'authentification grâce au contrôleur
+        /// Evénement déclenché lors du clic sur le bouton "Connexion"
+        /// Vérifie les informations saisies par l'utilisateur et tente de se connecter
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Objet qui a déclenché l'évenement</param>
+        /// <param name="e">Arguments de l'événement</param>
         private void BtnConnexion_Click(object sender, EventArgs e)
         {
-            
-            if (txtLogin == null)
-                MessageBox.Show("txtLogin est null", "Erreur");
-            if (txtPwd == null)
-                MessageBox.Show("txtMdp est null", "Erreur");
-            if (lblErreurLogin == null)
-                MessageBox.Show("lblErreurLogin est null", "Erreur");
-            if (controller == null)
-                MessageBox.Show("controller est null", "Erreur");
-
+            // Récupération des informations saisies par l'utilisateur
             string login = txtLogin.Text;
             string pwd = txtPwd.Text;
 
-            //Vérifier si les champs sont vides et si oui afficher un message
+            // Vérification des champs obligatoires
             if (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(pwd))
             {
                 MessageBox.Show("Tous les champs doivent être remplis ", "Attention");
             }
             else
             {
-                //Instancier le responsable
+                // Création d'un objet Responsable avec les informations saisies
                 Responsable responsable = new Responsable(login, pwd);
-                //Instancier le contrôleur????
+                // Vérification de l'authentification via le contrôleur
                 if (controller.ControleAuthentification(responsable))
                 {
+                    // Si l'authentification est réussie, on cache la fenêtre d'authentification et on ouvre la fenêtre de gestion du personnel
                     this.Hide();
                     FrmGestionPersonnel frm = new FrmGestionPersonnel();
                     frm.ShowDialog();
                     this.Show();
+                    // Réinitialisation des champs de saisie et cacher le message d'erreur
                     txtLogin.Clear();
                     txtPwd.Clear();
+                    lblErreurLogin.Visible = false;
                 }
                 else
                 {
+                    // Si l'authentification échoue, affichage d'un message d'erreur
                     lblErreurLogin.Visible = true;
                     MessageBox.Show("Login ou mot de passe incorrect", "Erreur");
                 }

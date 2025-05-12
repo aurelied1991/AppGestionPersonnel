@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppGestionPersonnel
@@ -9,7 +6,7 @@ namespace AppGestionPersonnel
     /// <summary>
     /// Application de gestion du personnel et des absences
     /// </summary>
-    internal class NamesSpaceDoc
+    internal class AppGestionPersonnelDoc
     {
     }
 
@@ -26,7 +23,7 @@ namespace AppGestionPersonnel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAuthentification());
+            Application.Run(new view.FrmAuthentification());
         }
     }
 }

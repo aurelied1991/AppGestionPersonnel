@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AppGestionPersonnel.model;
 
 namespace AppGestionPersonnel.dal
 {
     /// <summary>
-    /// Cette classe a pour rôle de construire les requêtes en lien avec la table service, donc en exploitant la classe ServicePersonnel
+    /// Cette classe a pour rôle de construire les requêtes en lien avec la table "service", donc en exploitant la classe ServicePersonnel
     /// </summary>
     public class ServiceAccess
     {
@@ -31,40 +28,41 @@ namespace AppGestionPersonnel.dal
         /// <returns>Liste des services</returns>
         public List<Service> GetLesServices()
         {
-            //Création en local d'une liste d'objets de type Profil pour la remplir à partir de la bdd et la retourner
+            // Création en local d'une liste d'objets de type Profil pour la remplir à partir de la bdd et la retourner
             List<Service> lesServices = new List<Service>();
-            //Ajout d'une ligne vide qui sera sélectionnée par défaut au démarrage de l'application
-            lesServices.Add(new Service(0, ""));
 
+            // Vérification que l'accès à la base de données est bien établi avant de faire une requête
             if (access.Manager != null)
             {
-                //Enregistrement de la requête paramétrée dans une variable
+                // Construction de la requête SQL pour récupérer tous les services, triés par nom
                 string requete = "SELECT * FROM service ORDER BY nom;";
 
-                //try catch car une demande d'exécution d'une requête peut provoquer une erreur
+                // Tentative d'exécution de la requête SQL, récupération des enregistrements et gestion des exceptions
                 try
                 {
-                    //Demande à BddManager (via l'objet Manager de la classe Access) d'exécuter une requête qui récupère tous les services
+                    // Exécution de la requête SQL pour récupérer les enregistrements de la table "service"
                     List<Object[]> records = access.Manager.ReqSelect(requete);
-                    //Vérifier que la liste n'est pas null puis boucler sur les objets de cette liste
+                    // Vérifier que la liste n'est pas null puis boucler sur les objets de cette liste
                     if (records != null)
                     {
-                        //A chaque tour de boucle, un objet de type Service doit être crée en mettant les paramètres du constructeurs, les 2 cases du tableau récupéré (contenant idservice et nom) apres les avoir correctement transtypés (car les cases sont de type object)
+                        // A chaque tour de boucle, un objet de type Service est créé à partir des données récupérées
                         foreach(Object[] record in records)
                         {
-                           Service service = new Service((int)record[0], (string)record[1]);
-                           //Ajout de l'objet service dans la liste de services
+                            // Création d'un objet Service à partir des données de la bdd
+                            Service service = new Service((int)record[0], (string)record[1]);
+                           // Ajout de l'objet service dans la liste de services
                            lesServices.Add(service);
                         }
                     }
                 }
                 catch(Exception e)
                 {
-                    //affichage d'un message + arrêt de l'application en car d'erreur
+                    // En cas d'erreur lors de l'exécution de la requête, un message d'erreur est affiché et le programme se ferme
                     Console.WriteLine(e.Message);
                     Environment.Exit(0);
                 }    
             }
+            // Retourne la liste complète des services récupérés dans la base de données
             return lesServices;
         }
     }

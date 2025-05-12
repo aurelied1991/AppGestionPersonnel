@@ -1,8 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Windows.Input;
+
 
 namespace AppGestionPersonnel.bddmanager
 {
@@ -11,15 +10,15 @@ namespace AppGestionPersonnel.bddmanager
     /// </summary>
     public class BddManager
     {
-        //propriete qui contient l'unique instance de la classe BddManager
+        // propriete qui contient l'unique instance de la classe BddManager
         private static BddManager instance = null;
-        //propriete qui permet de gerer une connexion MySql
+        // propriete qui permet de gerer une connexion MySql
         private readonly MySqlConnection connection;
 
         /// <summary>
         /// constructeur de la classe qui recoit en paramètre une chaîne de connexion
         /// </summary>
-        /// <param name="stringConnect"></param>
+        /// <param name="stringConnect">Chaîne de connexion</param>
         private BddManager(string stringConnect)
         {
             //affecte une instance de la classe à la propriété privée connection puis connexion à la bdd
@@ -30,8 +29,8 @@ namespace AppGestionPersonnel.bddmanager
         /// <summary>
         /// Méthode GetInstance qui permet de créer une instance de la classe uniquement si la classe n'a pas encore d'instance
         /// </summary>
-        /// <param name="stringConnect"></param>
-        /// <returns></returns>
+        /// <param name="stringConnect"> Chaîne de connexion</param>
+        /// <returns> Retourne l'instance </returns>
         public static BddManager GetInstance(string stringConnect)
         {
             if (instance == null)

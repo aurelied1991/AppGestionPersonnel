@@ -1,41 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AppGestionPersonnel.model
 {
     /// <summary>
-    /// Classe métier correspondant à la table service de la bdd
+    /// Classe métier correspondant à la table "service" de la base de données
+    /// Représente le service auquel appartient un personnel
     /// </summary>
     public class Service
     {
         /// <summary>
-        /// Constructeur pour valoriser les propriétés privées de la classe
+        /// Constructeur pour initialiser une nouvelle instance de la classe Service
         /// </summary>
-        /// <param name="idservice"></param>
-        /// <param name="nom"></param>
+        /// <param name="idservice">Identifiant unique du service</param>
+        /// <param name="nom">Nom du service</param>
         public Service(int idservice, string nom)
         {
-            // Déclaration de toutes les propriétés privées qui correspondent aux champs de la table service
+            // Initialisation des propriétés de la classe qui correspondent aux champs de la table "service"
             this.Idservice = idservice;
             this.Nom = nom;
         }
 
         /// <summary>
-        /// Getter pour avoir accès à la propriété sans pouvoir la modifier
+        /// Getter pour accéder à l'identifiant sans pouvoir le modifier
         /// </summary>
         public int Idservice { get; }
+
         /// <summary>
-        /// Getter pour avoir accès à la propriété sans pouvoir la modifier
+        /// Getter pour accéder au nom du service sans pouvoir le modifier
         /// </summary>
         public string Nom { get; }
 
         /// <summary>
-        /// Redéfinition de la méthode ToString, utile quand l'objet est sollicité pour l'affichage du service dans le DataGridView et le ComboBox
+        /// Redéfinition de la méthode ToString, utilisée pour afficher le nom du service dans le DataGridView et le ComboBox
         /// </summary>
-        /// <returns>Le nom du profil</returns>
+        /// <returns>Le nom du service</returns>
         public override string ToString()
         {
             return this.Nom;

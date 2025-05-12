@@ -1,34 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppGestionPersonnel.model
 {
     /// <summary>
-    /// Classe métier correspondant à la table responsable de la bdd et qui permet de se connecter à l'application
+    /// Classe métier correspondant à la table "responsable" de la base de données
+    /// Représente un responsable qui permet de se connecter à l'application afin de gérer le personnel
     /// </summary>
     public class Responsable
     {
         /// <summary>
-        /// Constructeur pour valoriser les propriétés privées de la classe
+        /// Constructeur pour initialiser une instance de la classe Responsable
         /// </summary>
-        /// <param name="login"></param>
-        /// <param name="pwd"></param>
+        /// <param name="login">Identifiant du reponsable pour l'authentification</param>
+        /// <param name="pwd">Mot de passe associé au login</param>
         public Responsable(string login, string pwd)
         {
-            // Déclaration de toutes les propriétés privées qui correspondent aux champs de la table responsable
+            // Initialisation des propriétés qui correspondent aux champs de la table "responsable"
             this.Login = login;
             this.Pwd = pwd;
         }
 
         /// <summary>
-        /// Getter pour avoir accès à la propriété sans pouvoir la modifier
+        /// Getter pour avoir accès au login sans pouvoir le modifier
         /// </summary>
         public string Login { get; }
+
         /// <summary>
-        /// Getter pour avoir accès à la propriété sans pouvoir la modifier
+        /// Getter pour avoir accès au mot de passe sans pouvoir le modifier
         /// </summary>
         public string Pwd { get; }
     }
