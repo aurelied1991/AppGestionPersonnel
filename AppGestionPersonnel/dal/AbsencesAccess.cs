@@ -116,20 +116,23 @@ namespace AppGestionPersonnel.dal
 
         /// <summary>
         /// Modification d'une absence dans la base de données
+        /// L'abence est identifiée par l'idpersonnel et la date de début
         /// </summary>
         /// <param name="absences"> Objet contenant les informations modifiées </param>
-        public void ModifierAbsence(Absences absences)
+        /// <param name="ancienneDatedebut"> Date de début de l'absence avant modification pour identifier l'absence dans la bdd</param>
+        public void ModifierAbsence(Absences absences, DateTime ancienneDatedebut)
         {
             // Vérification que l'accès à la base de données est bien établi avant de lancer la requête
             if (access.Manager != null)
             {
                 // Construction de la requête SQL pour mettre les informations d'une absence à jour dans la bdd
                 string requete = "UPDATE absence SET datedebut = @datedebut, datefin = @datefin, idmotif = @idmotif ";
-                requete += "WHERE idpersonnel = @idpersonnel;";
+                requete += "WHERE idpersonnel = @idpersonnel AND datedebut = @ancienneDatedebut;";
                 // Préparation des paramètres nécessaires pour la mise à jour dans la bdd
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@idpersonnel", absences.Idpersonnel);
-                parameters.Add("@datedebut", absences.Datedebut);
+                parameters.Add("@ancienneDatedebut", ancienneDatedebut);  // ICI on utilise l'ancienne date
+                parameters.Add("@datedebut", absences.Datedebut);          // ICI la nouvelle date
                 parameters.Add("@datefin", absences.Datefin);
                 parameters.Add("@idmotif", absences.Motif.Idmotif);
 

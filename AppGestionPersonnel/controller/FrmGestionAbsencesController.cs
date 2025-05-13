@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AppGestionPersonnel.model;
 using AppGestionPersonnel.dal;
+using System;
 
 namespace AppGestionPersonnel.controller
 {
@@ -56,9 +57,10 @@ namespace AppGestionPersonnel.controller
         /// Modifie une absence dans la base de données
         /// </summary>
         /// <param name="absence">Objet contenant les informations mises à jour de l'absence sélectionnée</param>
-        public void ModifierAbsence(Absences absence)
+        /// <param name="ancienneDatedebut">Ancienne date permettant de retrouver l'absence dans la bdd</param>
+        public void ModifierAbsence(Absences absence, DateTime ancienneDatedebut)
         {
-            absencesAccess.ModifierAbsence(absence);
+            absencesAccess.ModifierAbsence(absence, ancienneDatedebut);
         }
 
         /// <summary>

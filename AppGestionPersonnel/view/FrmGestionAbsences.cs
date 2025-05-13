@@ -233,20 +233,24 @@ namespace AppGestionPersonnel.view
                 {
                     List<Absences> lesAbsences = (List<Absences>)dgvAbsences.DataSource;
                     bool creneauLibre = true;
+                    Absences absenceAModifier = null;
+
                     foreach (Absences absences in lesAbsences)
                     {
                         // On vérifie seulement les absences qui ne sont pas en cours de modification
-                        if (absences.AbsenceId != absenceIdTemporaire)
+                        if (absences.AbsenceId == absenceIdTemporaire)
                         {
-                            // Vérifie l'absence de conflit de dates avec les autres absences
-                            if (dtpDebutAbsence.Value < absences.Datefin && dtpFinAbsence.Value > absences.Datedebut)
-                            {
-                                creneauLibre = false;
-                                break;
-                            }
+                            // On récupère l'ancienne absence 
+                            absenceAModifier = absences;  
+                        }
+                        else if (dtpDebutAbsence.Value < absences.Datefin && dtpFinAbsence.Value > absences.Datedebut)
+                        {
+                            creneauLibre = false;
+                            break;
                         }
                     }
-                    if (creneauLibre)
+                    // Si le créneau est libre et que l'absence à modifier a été trouvée
+                    if (creneauLibre && absenceAModifier != null)
                     {
                         // Demande de confirmation à l'utilisateur avant de modifier l'absence
                         if (MessageBox.Show("Êtes-vous sûr de vouloir enregistrer ces modifications ?", "Confirmer la modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -254,7 +258,7 @@ namespace AppGestionPersonnel.view
                             // Création de l'objet Absences mis à jour
                             Absences absence = new Absences(idPersonnel, dtpDebutAbsence.Value, dtpFinAbsence.Value, (Motif)cboMotifAbsence.SelectedItem);
                             // Enregistrement des modifications dans la base de données via le contrôleur
-                            controller.ModifierAbsence(absence);
+                            controller.ModifierAbsence(absence, absenceAModifier.Datedebut);
                             // Mise à jour de la liste des absences affichée et réinitialisation du formulaire
                             RemplirListeAbsences();
                             ReinitialiserFormulaire();
