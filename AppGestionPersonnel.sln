@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppGestionPersonnel", "AppGestionPersonnel\AppGestionPersonnel.csproj", "{88271173-14D0-4308-A667-3C1E5A0FF1C7}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppGestionPersonnelInstalleur", "AppGestionPersonnelInstalleur\AppGestionPersonnelInstalleur.vdproj", "{CACEA220-4624-4CDB-AB06-86E58871C3CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{88271173-14D0-4308-A667-3C1E5A0FF1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88271173-14D0-4308-A667-3C1E5A0FF1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88271173-14D0-4308-A667-3C1E5A0FF1C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CACEA220-4624-4CDB-AB06-86E58871C3CA}.Debug|Any CPU.ActiveCfg = Debug
+		{CACEA220-4624-4CDB-AB06-86E58871C3CA}.Debug|Any CPU.Build.0 = Debug
+		{CACEA220-4624-4CDB-AB06-86E58871C3CA}.Release|Any CPU.ActiveCfg = Release
+		{CACEA220-4624-4CDB-AB06-86E58871C3CA}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

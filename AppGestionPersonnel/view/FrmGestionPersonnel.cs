@@ -237,9 +237,9 @@ namespace AppGestionPersonnel.view
         /// <param name="e">Arguments de l'événement</param>
         private void BtnAfficherAbsences_Click(object sender, EventArgs e)
         {
-            Personnel personnelSelectionne = (Personnel)dgvPersonnel.SelectedRows[0].DataBoundItem;
             if (dgvPersonnel.SelectedRows.Count > 0)
             {
+                Personnel personnelSelectionne = (Personnel)dgvPersonnel.SelectedRows[0].DataBoundItem;
                 int idPersonnel = personnelSelectionne.Idpersonnel;
                 this.Hide();
                 FrmGestionAbsences frm = new FrmGestionAbsences(idPersonnel);

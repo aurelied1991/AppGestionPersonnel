@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gboListeAbsences = new System.Windows.Forms.GroupBox();
+            this.lblAucuneSelection = new System.Windows.Forms.Label();
             this.btnSupprimerAbsence = new System.Windows.Forms.Button();
             this.btnModifAbsence = new System.Windows.Forms.Button();
             this.btnAjoutAbsence = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.btnEnregistrerModifications = new System.Windows.Forms.Button();
             this.btnAnnulerAction = new System.Windows.Forms.Button();
             this.btnRetourPersonnel = new System.Windows.Forms.Button();
-            this.lblAucuneSelection = new System.Windows.Forms.Label();
             this.gboListeAbsences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).BeginInit();
             this.gboSaisieInfosAbsence.SuspendLayout();
@@ -67,6 +67,18 @@
             this.gboListeAbsences.TabIndex = 0;
             this.gboListeAbsences.TabStop = false;
             this.gboListeAbsences.Text = "Liste des absences";
+            // 
+            // lblAucuneSelection
+            // 
+            this.lblAucuneSelection.AutoSize = true;
+            this.lblAucuneSelection.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAucuneSelection.ForeColor = System.Drawing.Color.Red;
+            this.lblAucuneSelection.Location = new System.Drawing.Point(9, 545);
+            this.lblAucuneSelection.Name = "lblAucuneSelection";
+            this.lblAucuneSelection.Size = new System.Drawing.Size(445, 22);
+            this.lblAucuneSelection.TabIndex = 4;
+            this.lblAucuneSelection.Text = "Attention, une absence doit être sélectionnée dans la liste";
+            this.lblAucuneSelection.Visible = false;
             // 
             // btnSupprimerAbsence
             // 
@@ -198,9 +210,9 @@
             this.lblProblemeDate.ForeColor = System.Drawing.Color.Red;
             this.lblProblemeDate.Location = new System.Drawing.Point(6, 149);
             this.lblProblemeDate.Name = "lblProblemeDate";
-            this.lblProblemeDate.Size = new System.Drawing.Size(464, 22);
+            this.lblProblemeDate.Size = new System.Drawing.Size(460, 22);
             this.lblProblemeDate.TabIndex = 5;
-            this.lblProblemeDate.Text = "La date de fin ne peut pas être antérieure à la date  de début";
+            this.lblProblemeDate.Text = "La date de fin ne peut pas être antérieure à la date de début";
             this.lblProblemeDate.Visible = false;
             // 
             // lblCreneauNonLibre
@@ -210,9 +222,9 @@
             this.lblCreneauNonLibre.ForeColor = System.Drawing.Color.Red;
             this.lblCreneauNonLibre.Location = new System.Drawing.Point(6, 118);
             this.lblCreneauNonLibre.Name = "lblCreneauNonLibre";
-            this.lblCreneauNonLibre.Size = new System.Drawing.Size(472, 22);
+            this.lblCreneauNonLibre.Size = new System.Drawing.Size(454, 22);
             this.lblCreneauNonLibre.TabIndex = 4;
-            this.lblCreneauNonLibre.Text = "Impossible, une absence est déjà enregistrée dans ce créneau";
+            this.lblCreneauNonLibre.Text = "Erreur, une absence est déjà enregistrée pour cette période";
             this.lblCreneauNonLibre.Visible = false;
             // 
             // lblDateFin
@@ -272,23 +284,11 @@
             this.btnRetourPersonnel.UseVisualStyleBackColor = true;
             this.btnRetourPersonnel.Click += new System.EventHandler(this.btnRetourPersonnel_Click);
             // 
-            // lblAucuneSelection
-            // 
-            this.lblAucuneSelection.AutoSize = true;
-            this.lblAucuneSelection.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAucuneSelection.ForeColor = System.Drawing.Color.Red;
-            this.lblAucuneSelection.Location = new System.Drawing.Point(9, 545);
-            this.lblAucuneSelection.Name = "lblAucuneSelection";
-            this.lblAucuneSelection.Size = new System.Drawing.Size(445, 22);
-            this.lblAucuneSelection.TabIndex = 4;
-            this.lblAucuneSelection.Text = "Attention, une absence doit être sélectionnée dans la liste";
-            this.lblAucuneSelection.Visible = false;
-            // 
             // FrmGestionAbsences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1214, 620);
+            this.ClientSize = new System.Drawing.Size(1227, 620);
             this.Controls.Add(this.btnRetourPersonnel);
             this.Controls.Add(this.btnAnnulerAction);
             this.Controls.Add(this.btnEnregistrerModifications);

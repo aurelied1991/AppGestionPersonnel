@@ -31,9 +31,10 @@ namespace AppGestionPersonnel.dal
                 // Initialisation de l'objet Manager pour gérer la connexion à la base de données
                 Manager = BddManager.GetInstance(connectionString);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                 Environment.Exit(0);
+                Console.WriteLine(e.Message);
+                //Environment.Exit(0);
             }
         }
 
